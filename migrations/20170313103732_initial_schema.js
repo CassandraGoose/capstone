@@ -8,7 +8,7 @@ exports.up = function(knex) {
     })
     .createTable('mood', function(table) {
       table.increments('id').primary();
-      table.string('moodeName');
+      table.string('moodName');
     })
     .createTable('color', function(table) {
       table.increments('id').primary();
@@ -21,18 +21,18 @@ exports.up = function(knex) {
     .createTable('uploaded_images', function(table) {
       table.increments('id').primary();
       table.string('URL');
-      table.integer('moodId').unsigned().references('id').inTable('mood').onDelete('CASCADE');
-      table.integer('colorId').unsigned().references('id').inTable('color').onDelete('CASCADE');
-      table.integer('keywordId').unsigned().references('id').inTable('keyword').onDelete('CASCADE');
+      table.integer('mood_id').unsigned().references('id').inTable('mood').onDelete('CASCADE');
+      table.integer('color_id').unsigned().references('id').inTable('color').onDelete('CASCADE');
+      table.integer('keyword_id').unsigned().references('id').inTable('keyword').onDelete('CASCADE');
       table.integer('popularity');
     })
     .createTable('collected_images', function(table) {
       table.increments('id').primary();
       table.string('URL');
       table.integer('user_id').unsigned().references('id').inTable('people').onDelete('CASCADE');
-      table.integer('moodId').unsigned().references('id').inTable('mood').onDelete('CASCADE');
-      table.integer('colorId').unsigned().references('id').inTable('color').onDelete('CASCADE');
-      table.integer('keywordId').unsigned().references('id').inTable('keyword').onDelete('CASCADE');
+      table.integer('mood_id').unsigned().references('id').inTable('mood').onDelete('CASCADE');
+      table.integer('color_id').unsigned().references('id').inTable('color').onDelete('CASCADE');
+      table.integer('keyword_id').unsigned().references('id').inTable('keyword').onDelete('CASCADE');
       table.integer('popularity');
     });
 };

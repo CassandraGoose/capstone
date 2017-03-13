@@ -3,9 +3,9 @@ exports.seed = function(knex, Promise) {
   return knex.raw('delete from color; alter sequence color_id_seq restart with 3')
     .then(function() {
       const manyColors = [{
-        name: 'Red'
+        colorName: 'Red'
       }, {
-        name: 'Black'
+        colorName: 'Black'
       }]
       return knex('color').insert(manyColors)
     });

@@ -3,9 +3,9 @@ exports.seed = function(knex, Promise) {
   return knex.raw('delete from keyword; alter sequence keyword_id_seq restart with 3')
     .then(function() {
       const manyKeywords = [{
-        name: 'Ham'
+        keywordName: 'Ham'
       }, {
-        name: 'Design'
+        keywordName: 'Design'
       }]
       return knex('keyword').insert(manyKeywords)
     });
