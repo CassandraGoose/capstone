@@ -30,17 +30,18 @@
     //&& imageForm.submitted on ng-show is part of not showing until all done//
       `
       <div class="column-group">
-          <div class="small-30">
+          <div class="small-30 top-space">
               <input type="search" class="form-control input-sm search-form" ng-model=$ctrl.search placeholder="Filter">
+
+                  <select ng-model="$ctrl.filters">
+                <option value="-votes">Votes</option>
+                <option value="title">Title</option>
+                <option value="date">Date</option>
+              </select>
+
           </div>
-          <div class="all-30">
-              <select ng-model="$ctrl.filters">
-            <option value="-votes">Votes</option>
-            <option value="title">Title</option>
-            <option value="date">Date</option>
-          </select>
-          </div>
-<div class="column-group">
+
+<div class="column-group top-space">
                   <div class="xlarge-30 large-30 medium-50 small-100 tiny-100 align-center" ng-repeat="image in $ctrl.images | orderBy:$ctrl.filters | filter:$ctrl.search">
                       <div>
                           <img class="column ink-image" ng-src="{{image.image}}">
