@@ -20,6 +20,7 @@ exports.up = function(knex) {
     })
     .createTable('uploaded_images', function(table) {
       table.increments('id').primary();
+      table.string('URL');
       table.integer('moodId').unsigned().references('id').inTable('mood').onDelete('CASCADE');
       table.integer('colorId').unsigned().references('id').inTable('color').onDelete('CASCADE');
       table.integer('keywordId').unsigned().references('id').inTable('keyword').onDelete('CASCADE');
@@ -27,6 +28,7 @@ exports.up = function(knex) {
     })
     .createTable('collected_images', function(table) {
       table.increments('id').primary();
+      table.string('URL');
       table.integer('user_id').unsigned().references('id').inTable('people').onDelete('CASCADE');
       table.integer('moodId').unsigned().references('id').inTable('mood').onDelete('CASCADE');
       table.integer('colorId').unsigned().references('id').inTable('color').onDelete('CASCADE');
