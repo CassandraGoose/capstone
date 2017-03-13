@@ -5,16 +5,16 @@ exports.seed = function(knex, Promise) {
       const manyCollected_Images = [{
         id: 1,
         user_id: 1,
-        moodId: 1,
-        colorId: 1,
-        keywordId: 1,
+        mood_id: 1,
+        color_id: 1,
+        keyword_id: 1,
         popularity: 5
       }, {
         id: 2,
         user_id: 3,
-        moodId: 2,
-        colorId: 2,
-        keywordId: 2,
+        mood_id: 2,
+        color_id: 2,
+        keyword_id: 2,
         popularity: 10
       }]
       return knex('collected_images').insert(manyCollected_Images)
