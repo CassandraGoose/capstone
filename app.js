@@ -1,37 +1,36 @@
-var Knex = require('knex');
-var morgan = require('morgan');
-var express = require('express');
-var bodyParser = require('body-parser');
-var knexConfig = require('./knexfile');
-var registerApi = require('./api');
-var Model = require('objection').Model;
+const express = require('express')
+const path = require('path')
+const bodyParser = require('body-parser')
+const app = express()
 
-// Initialize knex.
-var knex = Knex(knexConfig.development);
+if (process.env.NODE_ENV !== 'test') {
+  const logger = require('morgan')
+  app.use(logger('dev'))
+}
 
-// Bind all Models to a knex instance. If you only have one database in
-// your server this is all you have to do. For multi database systems, see
-// the Model.bindKnex method.
-Model.knex(knex);
+app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, '/../', 'node_modules')))
 
-var app = express()
-  .use(bodyParser.json())
-  .use(morgan('dev'))
-  .set('json spaces', 2);
+app.use('/api/posts', require('./routes/posts'))
+app.use('/api/posts', require('./routes/comments'))
 
-// Register our REST API.
-registerApi(app);
+app.use('*', function(req, res, next) {
+  res.sendFile('index.html', {root: path.join(__dirname, 'public')})
+})
 
-// Error handling. The `ValidionError` instances thrown by objection.js have a `statusCode`
-// property that is sent as the status code of the response.
+app.use(function(req, res, next) {
+  var err = new Error('Not Found')
+  err.status = 404
+  next(err)
+})
+
 app.use(function(err, req, res, next) {
-  if (err) {
-    res.status(err.statusCode || err.status || 500).send(err.data || err.message || {});
-  } else {
-    next();
-  }
-});
+  res.locals.message = err.message
+  res.locals.error = req.app.get('env') === 'development' ? err : {}
+  console.log(err)
+  res.status(err.status || 500)
+  res.json(err)
+})
 
-var server = app.listen(8641, function() {
-  console.log('Example app listening at port %s', server.address().port);
-});
+module.exports = app
