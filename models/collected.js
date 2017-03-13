@@ -1,59 +1,81 @@
 var Model = require('objection').Model;
-var collected_images = require('./collected')
 
 /**
  * @extends Model
  * @constructor
  */
-function people() {
+function collected_images() {
   Model.apply(this, arguments);
 }
 
-Model.extend(people);
-module.exports = people;
+Model.extend(collected_images);
+module.exports = collected_images;
 
 // Table name is the only required property.
-Person.tableName = 'Person';
+collected_images.tableName = 'collected_images';
 
 // Optional JSON schema. This is not the database schema! Nothing is generated
 // based on this. This is only used for validation. Whenever a model instance
 // is created it is checked against this schema. http://json-schema.org/.
-Person.jsonSchema = {
+collected_images.jsonSchema = {
   type: 'object',
-  required: ['username', 'password'],
 
   properties: {
     id: {
       type: 'integer'
     },
-    username: {
-      type: 'string',
-      minLength: 1,
-      maxLength: 20
+    user_id: {
+      type: 'integer'
     },
-    password: {
-      type: 'string',
-      minLength: 4,
-      maxLength: 255
+    moodId: {
+      type: 'integer'
     },
-    email: {
-      type: 'string',
-      minLength: 1,
-      maxLength: 255
+    colorId: {
+      type: 'integer'
     },
+    keywordId: {
+      type: 'integer'
+    },
+    popularity: {
+      type: 'integer'
+    }
   }
 };
 
 // This object defines the relations to other models.
-people.relationMappings = {
-  collected_images: {
+collected_images.relationMappings = {
+  user_id: {
+    relation: Model.HasManyRelation,
+    modelClass: people,
+    join: {
+      from: 'collected_images.id',
+      to: 'people.id'
+    }
+  },
+  mood: {
     relation: Model.HasManyRelation,
     // The related model. This can be either a Model subclass constructor or an
     // absolute file path to a module that exports one.
-    modelClass: collected_images,
+    modelClass: mood,
     join: {
-      from: 'people.id',
-      to: 'collected_images.user_id'
+      from: 'collected_images.id',
+      to: 'mood.id'
+    }
+  },
+  color: {
+    relation: Model.HasManyRelation,
+    modelClass: color,
+    join: {
+      from: 'collected_images.id',
+      to: 'color.id'
+    }
+  },
+  keyword: {
+    relation: Model.HasManyRelation,
+    modelClass: keyword,
+    join: {
+      from: 'collected_images.id',
+      to: 'color.id'
     }
   }
 };
