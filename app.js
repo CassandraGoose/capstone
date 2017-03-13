@@ -37,7 +37,7 @@
                       <button class="ink-button">Search</button>
                           <button class="ink-button">Mood</button>
                           <button class="ink-button">Color</button>
-                          <button class="ink-button">Popular</button>
+                          <button class="ink-button">Top</button>
 
                   </div>
               </div>
