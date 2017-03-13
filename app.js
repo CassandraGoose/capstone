@@ -30,34 +30,41 @@
     //&& imageForm.submitted on ng-show is part of not showing until all done//
       `
       <div class="column-group">
-          <div class="small-30 top-space">
-              <input type="search" class="form-control input-sm search-form" ng-model=$ctrl.search placeholder="Filter">
+          <form class="small-30 top-space ink-form">
+              <div class="control-group">
+                  <div class "append-button" role="search">
+                      <input type="search" class="control" ng-model=$ctrl.search placeholder="Filter">
+                      <button class="ink-button">Search</button>
+                          <button class="ink-button">Mood</button>
+                          <button class="ink-button">Color</button>
+                          <button class="ink-button">Popular</button>
 
-                  <select ng-model="$ctrl.filters">
-                <option value="-votes">Votes</option>
-                <option value="title">Title</option>
-                <option value="date">Date</option>
-              </select>
+                  </div>
+              </div>
+          </form>
 
-          </div>
 
-<div class="column-group top-space">
-                  <div class="xlarge-30 large-30 medium-50 small-100 tiny-100 align-center" ng-repeat="image in $ctrl.images | orderBy:$ctrl.filters | filter:$ctrl.search">
-                      <div>
-                          <img class="column ink-image" ng-src="{{image.image}}">
-                      </div>
-                      <div class="over-top">
-                          <h4 class="media-heading">
+          <div class="column-group top-space">
+              <div class="xlarge-30 large-30 medium-50 small-100 tiny-100 align-center" ng-repeat="image in $ctrl.images | orderBy:$ctrl.filters | filter:$ctrl.search">
+                  <div>
+                      <img class="column ink-image" ng-src="{{image.image}}">
+                  </div>
+                  <div class="over-top">
+                      <h4 class="media-heading">
                           {{image.votes}}
                       </h4>
-                          <div>
-                              <span am-time-ago="{{image.date}}"></span>
-                          </div>
+                      <div>
+                          <span am-time-ago="{{image.date}}"></span>
                       </div>
                   </div>
               </div>
+          </div>
 
 `
-
+      // <select class="control" ng-model="$ctrl.filters">
+      // <option value="-votes">Votes</option>
+      // <option value="title">Title</option>
+      // <option value="date">Date</option>
+      // </select>
   })
 }());
