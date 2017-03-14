@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="app">
-
-<head>
-    <meta charset="utf-8">
-    <title>Image Inspire</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <base href="/">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/css/ink.css">
-
-</head>
-
-<body>
-
+  <head>
+      <meta charset="utf-8">
+      <title>Image Inspire</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <base href="/">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/css/ink.css">
+  </head>
+  <body>
     <nav class="ink-navigation">
         <div class="container">
             <div class="menu horizontal black">
@@ -20,26 +16,23 @@
                     <ul class="menu horizontal black">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">Collection</a></li>
-                        <li><a href="#">Account Settings</a></li>
+                        <li><a href="/images">Account Settings</a></li>
                         <p class="align-right">Image Inspire</p>
                     </ul>
                 </nav>
             </div>
         </div>
     </nav>
-        <ui-view></ui-view>
 
+    <ui-view></ui-view>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <script src="https://unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.js"></script>
     <script type="text/javascript" src="http://fastly.ink.sapo.pt/3.1.10/js/ink-all.js"></script>
-    <script src="app.module.js" charset="utf-8"></script>
+    <script src="/js/app.module.js"></script>
     <script src="/js/app.config.js"></script>
-    <script src="/js/images.component.js"></script>
-    <script src="/js/splash.component.js"></script>
-
-
-
-    <!-- inks js bundle -->
+    <script src="/js/images/images.controller.js"></script>
+    <script src="/js/images/images.component.js"></script>
+    <script src="/js/splash/splash.controller.js"></script>
+    <script src="/js/splash/splash.component.js"></script>
 </body>
-
 </html>

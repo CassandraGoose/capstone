@@ -20,6 +20,6 @@
         component: 'splash'
       })
 
-    $urlRouterProvider.otherwise('/')
+    $urlRouterProvider.otherwise('/');
   }
 }());
