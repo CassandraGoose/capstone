@@ -1,70 +1,36 @@
-(function() {
-  'use strict'
+const express = require('express')
+const path = require('path')
+const bodyParser = require('body-parser')
+const app = express()
 
-  angular.module("app", ['angularMoment'])
+if (process.env.NODE_ENV !== 'test') {
+  const logger = require('morgan')
+  app.use(logger('dev'))
+}
 
-  .component('newPostForm', {
+app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, '/../', 'node_modules')))
 
-    controller: function() {
-      const vm = this
-      var currentID = 3
+app.use('/api/posts', require('./routes/posts'))
+app.use('/api/posts', require('./routes/comments'))
 
-      vm.$onInit = function() {
-        vm.images = [{
-          image: "http://static1.squarespace.com/static/52f0510ce4b03e1f2f5401e1/52f3ed10e4b0bae912c18289/56128267e4b0e1ea7535e03f/1444053855371/?format=1000w"
-        }, {
-          image: "http://s4.wallippo.com/thumbs/100000/fullmetal-alchemist-lan-fan-0afdb3805152570bcf570cc69ef4815c.png"
-        }, ]
-      }
-      vm.postImage = function() {
-        vm.image.id = currentID
-        currentID += 1
-        vm.image.votes = 0
-        vm.image.date = new Date
-        vm.images.push(vm.image)
-        delete vm.image
-      }
-    },
+app.use('*', function(req, res, next) {
+  res.sendFile('index.html', {root: path.join(__dirname, 'public')})
+})
 
-    template:
-    //&& imageForm.submitted on ng-show is part of not showing until all done//
-      `
-      <div class="column-group">
-          <form class="small-30 top-space ink-form">
-              <div class="control-group">
-                  <div class "append-button" role="search">
-                      <input type="search" class="control" ng-model=$ctrl.search placeholder="Filter">
-                      <button class="ink-button">Search</button>
-                          <button class="ink-button">Mood</button>
-                          <button class="ink-button">Color</button>
-                          <button class="ink-button">Popular</button>
+app.use(function(req, res, next) {
+  var err = new Error('Not Found')
+  err.status = 404
+  next(err)
+})
 
-                  </div>
-              </div>
-          </form>
+app.use(function(err, req, res, next) {
+  res.locals.message = err.message
+  res.locals.error = req.app.get('env') === 'development' ? err : {}
+  console.log(err)
+  res.status(err.status || 500)
+  res.json(err)
+})
 
-
-          <div class="column-group top-space">
-              <div class="xlarge-30 large-30 medium-50 small-100 tiny-100 align-center" ng-repeat="image in $ctrl.images | orderBy:$ctrl.filters | filter:$ctrl.search">
-                  <div>
-                      <img class="column ink-image" ng-src="{{image.image}}">
-                  </div>
-                  <div class="over-top">
-                      <h4 class="media-heading">
-                          {{image.votes}}
-                      </h4>
-                      <div>
-                          <span am-time-ago="{{image.date}}"></span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-`
-      // <select class="control" ng-model="$ctrl.filters">
-      // <option value="-votes">Votes</option>
-      // <option value="title">Title</option>
-      // <option value="date">Date</option>
-      // </select>
-  })
-}());
+module.exports = app
