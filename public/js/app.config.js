@@ -10,14 +10,16 @@
 
     $stateProvider
       .state({
-        name: 'home',
-        url: '/',
-        component: 'splash'
-      }).state({
         name: 'images',
         url: '/images',
         component: 'images'
       })
-      $urlRouterProvider.otherwise('/')
+      .state({
+        name: 'home',
+        url: '/',
+        component: 'splash'
+      })
+
+    $urlRouterProvider.otherwise('/')
   }
 }());

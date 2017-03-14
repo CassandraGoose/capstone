@@ -1,17 +1,11 @@
 (function() {
-  angular
-  angular.module('app', ['angularMoment', 'ui.router'])
+  angular.module('app', ['ui.router'])
     .component('splash', {
       templateUrl: '/splash.html',
       controller: "SplashController"
     })
     .component('images', {
-      // bindings: { omg whatever
-      //   thing: ''
-      // },
       templateUrl: '/images.html',
       controller: "ImagesController"
     })
-
-
-}())
+}());
