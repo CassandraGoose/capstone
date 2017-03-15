@@ -4,7 +4,7 @@ angular
 
 function ImagesController($http, $stateParams, $state) {
   const vm = this
-  const BaseURL = 'http://localhost:3000/api'
+  const BaseURL = '/api'
 
   vm.$onInit = function() {
     $http.get(BaseURL + '/images').then(function(response) {
