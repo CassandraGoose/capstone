@@ -16,17 +16,17 @@
 
 
     <div class="column-group top-space">
-        <div class="xlarge-30 large-30 medium-50 small-100 tiny-100 align-center" ng-repeat="image in $ctrl.images | orderBy:$ctrl.filters | filter:$ctrl.search">
+        <div class="xlarge-30 large-30 medium-50 small-100 tiny-100 align-center" ng-repeat="uploaded_image in $ctrl.uploaded_images | orderBy:$ctrl.filters | filter:$ctrl.search">
             <div>
-                <img class="column ink-image" ng-src="{{image.image}}">
+                <img class="column ink-image" ng-src="{{uploaded_images.URL}}">
             </div>
             <div class="over-top">
                 <h4 class="media-heading">
                     {{image.votes}}
                 </h4>
-                <div>
+                <!-- <div>
                     <span am-time-ago="{{image.date}}"></span>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

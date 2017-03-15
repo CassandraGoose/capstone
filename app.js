@@ -12,11 +12,13 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, '/../', 'node_modules')))
 
-app.use('/api/posts', require('./routes/posts'))
-app.use('/api/posts', require('./routes/comments'))
+app.use('/api', require('./routes/images'))
+  // app.use('/api/posts', require('./routes/comments'))
 
 app.use('*', function(req, res, next) {
-  res.sendFile('index.html', {root: path.join(__dirname, 'public')})
+  res.sendFile('index.html', {
+    root: path.join(__dirname, 'public')
+  })
 })
 
 app.use(function(req, res, next) {

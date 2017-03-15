@@ -1,12 +1,16 @@
 angular
-.module('app')
+  .module('app')
   .controller("ImagesController", ImagesController)
 
-  function ImagesController($http, $stateParams, $state) {
-    const vm = this
+function ImagesController($http, $stateParams, $state) {
+  const vm = this
+  const BaseURL = '/api'
 
-    vm.$onInit = function() {
-      console.log('please work so i dont turn into shitty me');
+  vm.$onInit = function() {
+    $http.get(BaseURL + '/images').then(function(response) {
+      vm.imageObj = response.data
+      console.log(vm.imageObj)
+    })
   }
 }
 
