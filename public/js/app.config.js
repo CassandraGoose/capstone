@@ -17,7 +17,15 @@
         name: 'images',
         url: '/images',
         component: 'images'
+      }).state({
+        name: 'collection',
+        url: '/collection',
+        component: 'collection'
+      }).state({
+        name: 'upload',
+        url: '/upload',
+        component: 'upload'
       })
-      $urlRouterProvider.otherwise('/')
+    $urlRouterProvider.otherwise('/')
   }
 }());

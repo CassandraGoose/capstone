@@ -9,4 +9,12 @@
       templateUrl: '/images.html',
       controller: "ImagesController"
     })
+    .component('collection', {
+      templateUrl: '/collection.html',
+      controller: "CollectionController"
+    })
+    .component('upload', {
+      templateUrl: '/upload.html',
+      controller: "UploadController"
+    })
 }())

@@ -4,6 +4,7 @@ exports.seed = function(knex, Promise) {
     .then(function() {
       const manyCollected_Images = [{
         id: 1,
+        URL: 'https://d.fastcompany.net/multisite_files/fastcompany/imagecache/1280/poster/2015/08/3049875-poster-p-1-the-2015-innovation-by-design-awards-winners.jpg',
         user_id: 1,
         mood_id: 1,
         color_id: 1,
@@ -11,6 +12,7 @@ exports.seed = function(knex, Promise) {
         popularity: 5
       }, {
         id: 2,
+        URL: "https://68.media.tumblr.com/669cfb7fea91732af4f1611a0f464a25/tumblr_olj3yl7cfk1u16n75o1_500.jpg",
         user_id: 3,
         mood_id: 2,
         color_id: 2,

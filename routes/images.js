@@ -8,8 +8,14 @@ router.get('/images', (req, res, next) => {
     .catch(err => next(err))
 })
 
+router.get('/collection', (req, res, next) => {
+  knex('collected_images')
+    .then(collected_images => res.json(collected_images))
+})
+
 router.post('/images/upload', (req, res, next) => {
   var imagesObj = {
+    //form post stuff here
     URL: req.body.URL,
     mood_id: req.body.mood_id,
     color_id: req.body.color_id,
