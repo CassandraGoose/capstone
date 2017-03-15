@@ -1,0 +1,14 @@
+<form name="uploadForm" class="ink-form" novalidate>
+    <div class="control-group all-50 small-100 tiny-100" ng-class="{ 'has-error': uploadForm.URL.$invalid }">
+        <label for="title">Upload from URL</label>
+        <input id="URL" name="URL" class="control" ng-minlength=5 placeholder="URL" ng-model="$ctrl.uploaded_images.URL" required>
+            <div class="control append-button" role="submit">
+                <button class="ink-button" ng-click="$ctrl.uploadImage()" ng-disabled="postForm.$invalid" type="submit">submit</button>
+            </div>
+        <span class="error" ng-show="uploadForm.title.$invalid">
+                <small class="error" ng-show="uploadForm.title.$error.minlength">pls change validate to url stuff
+                </small>
+              </span>
+
+    </div>
+</form>

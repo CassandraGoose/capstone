@@ -8,19 +8,22 @@ router.get('/images', (req, res, next) => {
     .catch(err => next(err))
 })
 
-router.post('/images/upload', (req, res, next) => {
-  var imagesObj = {
-    URL: req.body.URL,
-    mood_id: req.body.mood_id,
-    color_id: req.body.color_id,
-    keyword_id: req.body.keyword_id,
-    popularity: req.body.popularity
+router.get('/collection', (req, res, next) => {
+  knex('collected_images')
+    .then(collected_images => res.json(collected_images))
+})
+
+router.post('/upload', (req, res, next) => {
+  var image = {
+    URL: req.body.url
   }
   knex('uploaded_images')
-    .insert(imagesObj)
-    .then(uploaded_images => res.json(uploaded_images))
+    .insert(image)
+    .returning('*')
+    .then(uploaded_images => res.json(uploaded_images[0]))
     .catch(err => next(err))
 })
+
 
 // .insert(params(req))
 //     .returning('*')
