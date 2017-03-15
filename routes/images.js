@@ -2,19 +2,28 @@ const express = require('express')
 const router = express.Router()
 const knex = require('../db')
 
-router.post('/images',(req, res, next) => {
-  knex('images')
-    .insert(params(req))
-    .returning('*')
-    .then(images => res.json(images))
+router.get('/images', (req, res, next) => {
+  knex('uploaded_images')
+    .then(uploaded_images => res.json(uploaded_images))
     .catch(err => next(err))
 })
 
-router.get('/images', (req, res, next) => {
+router.post('/images/upload', (req, res, next) => {
+  var imagesObj = {
+    URL: req.body.URL,
+    mood_id: req.body.mood_id,
+    color_id: req.body.color_id,
+    keyword_id: req.body.keyword_id,
+    popularity: req.body.popularity
+  }
   knex('uploaded_images')
-    .then(images => res.json(images))
+    .insert(imagesObj)
+    .then(uploaded_images => res.json(uploaded_images))
     .catch(err => next(err))
 })
+
+// .insert(params(req))
+//     .returning('*')
 
 // router.patch('/:id', validate, (req, res, next) => {
 //   knex('posts')
