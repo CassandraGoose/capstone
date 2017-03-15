@@ -25,6 +25,10 @@
         name: 'upload',
         url: '/upload',
         component: 'upload'
+      }).state({
+        name: 'about',
+        url: '/about',
+        component: 'about'
       })
     $urlRouterProvider.otherwise('/')
   }

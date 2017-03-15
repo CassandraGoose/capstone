@@ -17,4 +17,8 @@
       templateUrl: '/upload.html',
       controller: "UploadController"
     })
+    .component('about', {
+      templateUrl: '/about.html',
+      controller: "AboutController"
+    })
 }())
