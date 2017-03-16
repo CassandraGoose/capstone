@@ -10,7 +10,7 @@
                     <a ng-click="isColorOpen = !isColorOpen"><button class="ink-button">Color</button></a>
                     <button class="ink-button">Top</button>
                 </div>
-                <div class="col-md-8" ng-init="isMoodOpen = false" ng-show="isMoodOpen" id="moodButton">
+                <div class="top-space" ng-init="isMoodOpen = false" ng-show="isMoodOpen" id="moodButton">
 <button class="ink-button" ng-model="$ctrl.filters" value="-mood_id">Angry</button>
 <!-- I need the value to match up to the integer in the object's mood_id -->
 <button class="ink-button" ng-model="$ctrl.filters" value="mood_id">Anxious</button>
@@ -24,7 +24,7 @@
 <button class="ink-button" ng-model="$ctrl.filters" value="10">Silly</button>
 <button class="ink-button" ng-model="$ctrl.filters" value="11">Weird</button>
                 </div>
-                <div class="col-md-8" ng-init="isColorOpen = false" ng-show="isColorOpen" id="colorButton">
+                <div class="top-space" ng-init="isColorOpen = false" ng-show="isColorOpen" id="colorButton">
 <button class="ink-button">Red</button>
 <button class="ink-button">Orange</button>
 <button class="ink-button">Yellow</button>
@@ -47,8 +47,8 @@
 
         <div class="column-group top-space">
             <div class="xlarge-30 large-30 medium-50 small-100 tiny-100 align-center" ng-repeat="collected_image in $ctrl.collected_images | orderBy:$ctrl.filters | filter:$ctrl.search">
-                <div>
-                    <img class="column ink-image horizontal-gutters" ng-src="{{collected_image.URL}}">
+                <div class="bottom-space left-space">
+                    <img class="column ink-image" ng-src="{{collected_image.URL}}">
 
                 </div>
                 <div class="over-top">
