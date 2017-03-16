@@ -4,8 +4,8 @@
         <form class="small-30 top-space ink-form">
             <div class="control-group">
                 <div class "append-button" role="search">
-                    <input type="search" class="control" ng-model=$ctrl.search placeholder="Filter">
-                    <button class="ink-button">Search</button>
+                    <input type="search" class="control" ng-model="theTerm" placeholder="Search By Keyword">
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('keyword', theTerm)">Search</button>
                     <a ng-click="isMoodOpen = !isMoodOpen"><button class="ink-button">Mood</button></a>
                     <a ng-click="isColorOpen = !isColorOpen"><button class="ink-button">Color</button></a>
                     <button class="ink-button" ng-model="$ctrl.filters" value="-popularity">Top</button>

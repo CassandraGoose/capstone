@@ -14,6 +14,7 @@ function ImagesController($http, $stateParams, $state) {
   }
 
   vm.doSortThing = function(sortType, sortValue) {
+    console.log(`${BaseURL}/images/sort?sortType=${sortType}&sortValue=${sortValue}`);
       $http.get(`${BaseURL}/images/sort?sortType=${sortType}&sortValue=${sortValue}`)
         .then(function(data) {
           vm.uploaded_images = data.data;
