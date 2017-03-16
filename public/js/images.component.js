@@ -5,6 +5,7 @@ angular
 function ImagesController($http, $stateParams, $state) {
   const vm = this
   const BaseURL = '/api'
+  vm.filters = "-popularity"
 
   vm.$onInit = function() {
     $http.get(BaseURL + '/images').then(function(response) {
