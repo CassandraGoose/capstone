@@ -1,37 +1,65 @@
 <main class="ink-grid">
 
-<div class="column-group">
-    <form class="small-30 top-space ink-form">
-        <div class="control-group">
-            <div class "append-button" role="search">
-                <input type="search" class="control" ng-model=$ctrl.search placeholder="Filter">
-                <button class="ink-button">Search</button>
-                    <button class="ink-button">Mood</button>
-                    <button class="ink-button">Color</button>
+    <div class="column-group">
+        <form class="small-30 top-space ink-form">
+            <div class="control-group">
+                <div class "append-button" role="search">
+                    <input type="search" class="control" ng-model=$ctrl.search placeholder="Filter">
+                    <button class="ink-button" ng-model="$ctrl.search">Search</button>
+                  <a ng-click="isMoodOpen = !isMoodOpen"><button class="ink-button">Mood</button></a>
+                    <a ng-click="isColorOpen = !isColorOpen"><button class="ink-button">Color</button>
                     <button class="ink-button">Top</button>
+                </div>
+                <div class="col-md-8" ng-init="isMoodOpen = false" ng-show="isMoodOpen" id="moodButton">
+<button class="ink-button">moods</button>
+<button class="ink-button">moods</button>
+<button class="ink-button">moods</button>
+<button class="ink-button">moods</button>
+<button class="ink-button">moods</button>
+<button class="ink-button">moods</button>
+<button class="ink-button">moods</button>
+<button class="ink-button">moods</button>
+<button class="ink-button">moods</button>
+<button class="ink-button">moods</button>
+<button class="ink-button">moods</button>
+<button class="ink-button">moods</button>
+                </div>
+                <div class="col-md-8" ng-init="isColorOpen = false" ng-show="isColorOpen" id="colorButton">
+<button class="ink-button">color</button>
+<button class="ink-button">color</button>
+<button class="ink-button">color</button>
+<button class="ink-button">color</button>
+<button class="ink-button">color</button>
+<button class="ink-button">color</button>
+<button class="ink-button">color</button>
+<button class="ink-button">color</button>
+<button class="ink-button">color</button>
+<button class="ink-button">color</button>
+<button class="ink-button">color</button>
+<button class="ink-button">color</button>
+                </div>
             </div>
+
+        </form>
+        <div>
+            <p>Register or sign in to save your favorite images</p>
         </div>
 
-    </form>
-    <div>
-      <p>Register or sign in to save your favorite images</p>
-    </div>
 
+        <div class="column-group top-space">
+            <div class="xlarge-30 large-30 medium-50 small-100 tiny-100 align-center" ng-repeat="collected_image in $ctrl.collected_images | orderBy:$ctrl.filters | filter:$ctrl.search">
+                <div>
+                    <img class="column ink-image" ng-src="{{collected_image.URL}}">
 
-    <div class="column-group top-space">
-        <div class="xlarge-30 large-30 medium-50 small-100 tiny-100 align-center" ng-repeat="collected_image in $ctrl.collected_images | orderBy:$ctrl.filters | filter:$ctrl.search">
-            <div>
-                <img class="column ink-image" ng-src="{{collected_image.URL}}">
-
-            </div>
-            <div class="over-top">
-                <h4 class="media-heading">
+                </div>
+                <div class="over-top">
+                    <h4 class="media-heading">
                   {{image.votes}}
                 </h4>
-                <!-- <div>
+                    <!-- <div>
                     <span am-time-ago="{{image.date}}"></span>
                 </div> -->
+                </div>
             </div>
         </div>
-    </div>
 </main>
