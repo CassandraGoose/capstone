@@ -6,22 +6,23 @@
                 <div class "append-button" role="search">
                     <input type="search" class="control" ng-model=$ctrl.search placeholder="Filter">
                     <button class="ink-button" ng-model="$ctrl.search">Search</button>
-                  <a ng-click="isMoodOpen = !isMoodOpen"><button class="ink-button">Mood</button></a>
-                    <a ng-click="isColorOpen = !isColorOpen"><button class="ink-button">Color</button>
+                    <a ng-click="isMoodOpen = !isMoodOpen"><button class="ink-button">Mood</button></a>
+                    <a ng-click="isColorOpen = !isColorOpen"><button class="ink-button">Color</button></a>
                     <button class="ink-button">Top</button>
                 </div>
                 <div class="col-md-8" ng-init="isMoodOpen = false" ng-show="isMoodOpen" id="moodButton">
-<button class="ink-button">Angry</button>
-<button class="ink-button">Anxious</button>
-<button class="ink-button">Content</button>
-<button class="ink-button">Fearful</button>
-<button class="ink-button">Happy</button>
-<button class="ink-button">Hopeful</button>
-<button class="ink-button">Melancholic</button>
-<button class="ink-button">Peaceful</button>
-<button class="ink-button">Sad</button>
-<button class="ink-button">Silly</button>
-<button class="ink-button">Weird</button>
+<button class="ink-button" ng-model="$ctrl.filters" value="-mood_id">Angry</button>
+<!-- I need the value to match up to the integer in the object's mood_id -->
+<button class="ink-button" ng-model="$ctrl.filters" value="mood_id">Anxious</button>
+<button class="ink-button" ng-model="$ctrl.filters" value="3">Content</button>
+<button class="ink-button" ng-model="$ctrl.filters" value="4">Fearful</button>
+<button class="ink-button" ng-model="$ctrl.filters" value="5">Happy</button>
+<button class="ink-button" ng-model="$ctrl.filters" value="6">Hopeful</button>
+<button class="ink-button" ng-model="$ctrl.filters" value="7">Melancholic</button>
+<button class="ink-button" ng-model="$ctrl.filters" value="8">Peaceful</button>
+<button class="ink-button" ng-model="$ctrl.filters" value="9">Sad</button>
+<button class="ink-button" ng-model="$ctrl.filters" value="10">Silly</button>
+<button class="ink-button" ng-model="$ctrl.filters" value="11">Weird</button>
                 </div>
                 <div class="col-md-8" ng-init="isColorOpen = false" ng-show="isColorOpen" id="colorButton">
 <button class="ink-button">Red</button>
