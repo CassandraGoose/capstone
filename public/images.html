@@ -8,7 +8,7 @@
                     <button class="ink-button" ng-click="$ctrl.doSortThing('keyword', theTerm)">Search</button>
                     <a ng-click="isMoodOpen = !isMoodOpen"><button class="ink-button">Mood</button></a>
                     <a ng-click="isColorOpen = !isColorOpen"><button class="ink-button">Color</button></a>
-                    <button class="ink-button" ng-model="$ctrl.filters" value="-popularity">Top</button>
+                    <button class="ink-button" ng-model="$ctrl.filters" value="-uploaded_images.popularity">Top</button>
                 </div>
                 <div class="top-space" ng-init="isMoodOpen = false" ng-show="isMoodOpen" id="moodButton">
                     <button class="ink-button" ng-click="$ctrl.doSortThing('mood', 'angry')">Angry</button>
@@ -42,7 +42,7 @@
 
 
         <div class="column-group top-space">
-            <div class="xlarge-30 large-30 medium-50 small-100 tiny-100 align-center" ng-repeat="uploaded_image in $ctrl.uploaded_images | orderBy:$ctrl.filters " >
+            <div class="xlarge-30 large-30 medium-50 small-100 tiny-100 align-center" ng-repeat="uploaded_image in $ctrl.uploaded_images | orderBy:$ctrl.filters" >
                 <div class="bottom-space left-space">
                     <img class="column ink-image" ng-src="{{uploaded_image.URL}}">
 
