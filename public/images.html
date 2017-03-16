@@ -11,30 +11,30 @@
                     <button class="ink-button" ng-model="$ctrl.filters" value="-popularity">Top</button>
                 </div>
                 <div class="top-space" ng-init="isMoodOpen = false" ng-show="isMoodOpen" id="moodButton">
-                    <button class="ink-button" ng-click="$ctrl.doMoodThing('angry')">Angry</button>
-                    <button class="ink-button" ng-click="$ctrl.doMoodThing('anxious')">Anxious</button>
-                    <button class="ink-button" ng-click="$ctrl.doMoodThing('content')">Content</button>
-                    <button class="ink-button" ng-click="$ctrl.doMoodThing('fearful')">Fearful</button>
-                    <button class="ink-button" ng-click="$ctrl.doMoodThing('happy')">Happy</button>
-                    <button class="ink-button" ng-click="$ctrl.doMoodThing('hopeful')">Hopeful</button>
-                    <button class="ink-button" ng-click="$ctrl.doMoodThing('melancholic')">Melancholic</button>
-                    <button class="ink-button" ng-click="$ctrl.doMoodThing('peaceful')">Peaceful</button>
-                    <button class="ink-button" ng-click="$ctrl.doMoodThing('sad')">Sad</button>
-                    <button class="ink-button" ng-click="$ctrl.doMoodThing('silly')">Silly</button>
-                    <button class="ink-button" ng-click="$ctrl.doMoodThing('weird')">Weird</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('mood', 'angry')">Angry</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('mood','anxious')">Anxious</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('mood', 'content')">Content</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('mood', 'fearful')">Fearful</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('mood', 'happy')">Happy</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('mood', 'hopeful')">Hopeful</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('mood', 'melancholic')">Melancholic</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('mood', 'peaceful')">Peaceful</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('mood', 'sad')">Sad</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('mood', 'silly')">Silly</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('mood', 'weird')">Weird</button>
                 </div>
                 <div class="top-space" ng-init="isColorOpen = false" ng-show="isColorOpen" id="colorButton">
-                    <button class="ink-button" ng-click="$ctrl.doColorThing('red')">Red</button>
-                    <button class="ink-button" ng-click="$ctrl.doColorThing('orange')">Orange</button>
-                    <button class="ink-button" ng-click="$ctrl.doColorThing('yellow')">Yellow</button>
-                    <button class="ink-button" ng-click="$ctrl.doColorThing('green')">Green</button>
-                    <button class="ink-button" ng-click="$ctrl.doColorThing('blue')">Blue</button>
-                    <button class="ink-button" ng-click="$ctrl.doColorThing('purple')">Purple</button>
-                    <button class="ink-button" ng-click="$ctrl.doColorThing('brown')">Brown</button>
-                    <button class="ink-button" ng-click="$ctrl.doColorThing('cream')">Cream</button>
-                    <button class="ink-button" ng-click="$ctrl.doColorThing('grey')">Grey</button>
-                    <button class="ink-button" ng-click="$ctrl.doColorThing('black')">Black</button>
-                    <button class="ink-button" ng-click="$ctrl.doColorThing('white')">White</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('color', 'red')">Red</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('color', 'orange')">Orange</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('color', 'yellow')">Yellow</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('color', 'green')">Green</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('color', 'blue')">Blue</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('color', 'purple')">Purple</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('color', 'brown')">Brown</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('color', 'cream')">Cream</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('color', 'grey')">Grey</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('color', 'black')">Black</button>
+                    <button class="ink-button" ng-click="$ctrl.doSortThing('color', 'white')">White</button>
                 </div>
             </div>
 

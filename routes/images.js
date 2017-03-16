@@ -2,23 +2,25 @@ const express = require('express')
 const router = express.Router()
 const knex = require('../db')
 
-router.get('/images/:color', (req, res, next) => {
-  console.log(req.params.color);
-  knex('uploaded_images')
-  .where('color', req.params.color.split(':')[1]).select('*')
-    .then(function(data) {
-      res.json(data);
-    });
-})
+router.get('/images/sort', (req, res, next) => {
+  var sortType = req.query.sortType
+  var sortValue = req.query.sortValue
 
-router.get('/images/:mood', (req, res, next) => {
-  console.log(req.params.mood);
   knex('uploaded_images')
-  .where('mood', req.params.mood.split(':')[1]).select('*')
+  .where(sortType, sortValue)
     .then(function(data) {
       res.json(data);
-    });
+    })
 })
+//
+// router.get('/images/:color', (req, res, next) => {
+//   console.log(req.params.color);
+//   knex('uploaded_images')
+//   .where('color', req.params.color.split(':')[1]).select('*')
+//     .then(function(data) {
+//       res.json(data);
+//     });
+// })
 
 router.get('/images', (req, res, next) => {
   knex('uploaded_images')
