@@ -1,14 +1,62 @@
 <form name="uploadForm" class="ink-form" novalidate>
-    <div class="control-group all-50 small-100 tiny-100" ng-class="{ 'has-error': uploadForm.URL.$invalid }">
+    <div class="control-group all-50 small-100 tiny-100" ng-class="{ 'has-error': uploadForm.$invalid }">
         <label for="title">Upload from URL</label>
         <input id="URL" name="URL" class="control" ng-minlength=5 placeholder="URL" ng-model="$ctrl.uploaded_images.URL" required>
-            <div class="control append-button" role="submit">
-                <button class="ink-button" ng-click="$ctrl.uploadImage()" ng-disabled="postForm.$invalid" type="submit">submit</button>
-            </div>
         <span class="error" ng-show="uploadForm.title.$invalid">
                 <small class="error" ng-show="uploadForm.title.$error.minlength">pls change validate to url stuff
                 </small>
               </span>
 
+    </div>
+    <div class="control-group all-50 small-100 tiny-100" ng-class="{ 'has-error': uploadForm.$invalid }">
+        <label for="title">Keyword</label>
+        <input id="URL" name="URL" class="control" ng-minlength=4 placeholder="Supply one keyword to describe your image" ng-model="$ctrl.uploaded_images.keyword" required>
+        <span class="error" ng-show="uploadForm.title.$invalid">
+                <small class="error" ng-show="uploadForm.title.$error.minlength">pls change validate to url stuff
+                </small>
+              </span>
+
+    </div>
+    <fieldset>
+        <legend>Choose a Mood that matches your uploaded image.</legend>
+        <div class="control-group">
+            <p class="label">Mood</p>
+            <ul class="control unstyled">
+                <li><input type="radio" id="angry" name="angry" value="angry" ng-model="$ctrl.uploaded_images.mood"><label for="angry">Angry</label></li>
+                <li><input type="radio" id="anxious" name="anxious" value="anxious" ng-model="$ctrl.uploaded_images.mood"><label for="anxious">Anxious</label></li>
+                <li><input type="radio" id="content" name="content" value="content" ng-model="$ctrl.uploaded_images.mood"><label for="content">Content</label></li>
+                <li><input type="radio" id="fearful" name="fearful" value="fearful" ng-model="$ctrl.uploaded_images.mood"><label for="fearful">Fearful</label></li>
+                <li><input type="radio" id="happy" name="happy" value="happy" ng-model="$ctrl.uploaded_images.mood"><label for="happy">Happy</label></li>
+                <li><input type="radio" id="hopeful" name="hopeful" value="hopeful" ng-model="$ctrl.uploaded_images.mood"><label for="hopeful">Hopeful</label></li>
+                <li><input type="radio" id="melancholic" name="melancholic" value="melancholic" ng-model="$ctrl.uploaded_images.mood"><label for="melancholic">Melancholic</label></li>
+                <li><input type="radio" id="peaceful" name="peaceful" value="peaceful" ng-model="$ctrl.uploaded_images.mood"><label for="peaceful">Peaceful</label></li>
+                <li><input type="radio" id="sad" name="sad" value="sad" ng-model="$ctrl.uploaded_images.mood"><label for="sad">Sad</label></li>
+                <li><input type="radio" id="silly" name="silly" value="silly" ng-model="$ctrl.uploaded_images.mood"><label for="silly">Silly</label></li>
+                <li><input type="radio" id="weird" name="weird" value="weird" ng-model="$ctrl.uploaded_images.mood"><label for="weird">Weird</label></li>
+            </ul>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Choose a Color that matches your uploaded image.</legend>
+        <div class="control-group">
+            <p class="label">Color</p>
+            <ul class="control unstyled">
+                <li><input type="radio" id="red" name="red" value="red" ng-model="$ctrl.uploaded_images.color"><label for="red">Red</label></li>
+                <li><input type="radio" id="orange" name="orange" value="orange" ng-model="$ctrl.uploaded_images.color"><label for="orange">Orange</label></li>
+                <li><input type="radio" id="yellow" name="yellow" value="yellow" ng-model="$ctrl.uploaded_images.color"><label for="yellow">Yellow</label></li>
+                <li><input type="radio" id="green" name="green" value="green" ng-model="$ctrl.uploaded_images.color"><label for="green">Green</label></li>
+                <li><input type="radio" id="blue" name="blue" value="blue" ng-model="$ctrl.uploaded_images.color"><label for="blue">Blue</label></li>
+                <li><input type="radio" id="purple" name="purple" value="purple" ng-model="$ctrl.uploaded_images.color"><label for="purple">Purple</label></li>
+                <li><input type="radio" id="brown" name="brown" value="brown" ng-model="$ctrl.uploaded_images.color"><label for="brown">Brown</label></li>
+                <li><input type="radio" id="cream" name="cream" value="cream" ng-model="$ctrl.uploaded_images.color"><label for="cream">Cream</label></li>
+                <li><input type="radio" id="grey" name="grey" value="grey" ng-model="$ctrl.uploaded_images.color"><label for="grey">Grey</label></li>
+                <li><input type="radio" id="black" name="black" value="black" ng-model="$ctrl.uploaded_images.color"><label for="black">Black</label></li>
+                <li><input type="radio" id="white" name="white" value="white" ng-model="$ctrl.uploaded_images.color"><label for="white">White</label></li>
+            </ul>
+        </div>
+    </fieldset>
+
+    <div class="control append-button" role="submit">
+        <button class="ink-button" ng-click="$ctrl.uploadImage()" ng-disabled="postForm.$invalid" type="submit">submit</button>
     </div>
 </form>
