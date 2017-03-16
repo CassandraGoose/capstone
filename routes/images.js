@@ -35,7 +35,10 @@ router.get('/collection', (req, res, next) => {
 
 router.post('/upload', (req, res, next) => {
   var image = {
-    URL: req.body.url
+    URL: req.body.url,
+    mood: req.body.mood,
+    color: req.body.color,
+    keyword: req.body.keyword
   }
   knex('uploaded_images')
     .insert(image)
