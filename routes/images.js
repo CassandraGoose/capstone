@@ -4,15 +4,17 @@ const knex = require('../db')
 
 router.get('/images/:color', (req, res, next) => {
   console.log(req.params.color);
-  knex('uploaded_images').where('color', req.params.color.split(':')[1]).select('*')
+  knex('uploaded_images')
+  .where('color', req.params.color.split(':')[1]).select('*')
     .then(function(data) {
       res.json(data);
     });
 })
 
 router.get('/images/:mood', (req, res, next) => {
-  console.log(req.params.color);
-  knex('uploaded_images').where('mood', req.params.color.split(':')[1]).select('*')
+  console.log(req.params.mood);
+  knex('uploaded_images')
+  .where('mood', req.params.mood.split(':')[1]).select('*')
     .then(function(data) {
       res.json(data);
     });

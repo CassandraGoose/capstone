@@ -11,23 +11,25 @@ function ImagesController($http, $stateParams, $state) {
       vm.uploaded_images = response.data
       console.log(vm.uploaded_images)
     })
-
-    vm.doColorThing = function(color) {
-      console.log(`${BaseURL}/images/:${color}`);
-      $http.get(`${BaseURL}/images/:${color}`)
-        .then(function(data) {
-          vm.uploaded_images = data.data;
-        });
-    }
-
-    vm.doMoodThing = function(mood) {
-      console.log(`${BaseURL}/images/:${mood}`);
-      $http.get(`${BaseURL}/images/:${mood}`)
-        .then(function(data) {
-          vm.uploaded_images = data.data;
-        });
-    }
   }
+
+  vm.doMoodThing = function(mood) {
+    console.log(`${BaseURL}/images/:${mood}`);
+    $http.get(`${BaseURL}/images/:${mood}`)
+      .then(function(data) {
+        vm.uploaded_images = data.data;
+      })
+  }
+
+  vm.doColorThing = function(color) {
+    console.log(`${BaseURL}/images/:${color}`);
+    $http.get(`${BaseURL}/images/:${color}`)
+      .then(function(data) {
+        vm.uploaded_images = data.data;
+      });
+  }
+
+
 }
 
 //   vm.images = [{

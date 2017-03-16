@@ -1,61 +1,60 @@
 <main class="ink-grid">
 
-<div class="column-group">
-    <form class="small-30 top-space ink-form">
-        <div class="control-group">
-            <div class "append-button" role="search">
-                <input type="search" class="control" ng-model=$ctrl.search placeholder="Filter">
-                <button class="ink-button">Search</button>
-                      <a ng-click="isMoodOpen = !isMoodOpen"><button class="ink-button">Mood</button></a>
+    <div class="column-group">
+        <form class="small-30 top-space ink-form">
+            <div class="control-group">
+                <div class "append-button" role="search">
+                    <input type="search" class="control" ng-model=$ctrl.search placeholder="Filter">
+                    <button class="ink-button">Search</button>
+                    <a ng-click="isMoodOpen = !isMoodOpen"><button class="ink-button">Mood</button></a>
                     <a ng-click="isColorOpen = !isColorOpen"><button class="ink-button">Color</button></a>
                     <button class="ink-button" ng-model="$ctrl.filters" value="-popularity">Top</button>
+                </div>
+                <div class="top-space" ng-init="isMoodOpen = false" ng-show="isMoodOpen" id="moodButton">
+                    <button class="ink-button" ng-click="$ctrl.doMoodThing('angry')">Angry</button>
+                    <button class="ink-button" ng-click="$ctrl.doMoodThing('anxious')">Anxious</button>
+                    <button class="ink-button" ng-click="$ctrl.doMoodThing('content')">Content</button>
+                    <button class="ink-button" ng-click="$ctrl.doMoodThing('fearful')">Fearful</button>
+                    <button class="ink-button" ng-click="$ctrl.doMoodThing('happy')">Happy</button>
+                    <button class="ink-button" ng-click="$ctrl.doMoodThing('hopeful')">Hopeful</button>
+                    <button class="ink-button" ng-click="$ctrl.doMoodThing('melancholic')">Melancholic</button>
+                    <button class="ink-button" ng-click="$ctrl.doMoodThing('peaceful')">Peaceful</button>
+                    <button class="ink-button" ng-click="$ctrl.doMoodThing('sad')">Sad</button>
+                    <button class="ink-button" ng-click="$ctrl.doMoodThing('silly')">Silly</button>
+                    <button class="ink-button" ng-click="$ctrl.doMoodThing('weird')">Weird</button>
+                </div>
+                <div class="top-space" ng-init="isColorOpen = false" ng-show="isColorOpen" id="colorButton">
+                    <button class="ink-button" ng-click="$ctrl.doColorThing('red')">Red</button>
+                    <button class="ink-button" ng-click="$ctrl.doColorThing('orange')">Orange</button>
+                    <button class="ink-button" ng-click="$ctrl.doColorThing('yellow')">Yellow</button>
+                    <button class="ink-button" ng-click="$ctrl.doColorThing('green')">Green</button>
+                    <button class="ink-button" ng-click="$ctrl.doColorThing('blue')">Blue</button>
+                    <button class="ink-button" ng-click="$ctrl.doColorThing('purple')">Purple</button>
+                    <button class="ink-button" ng-click="$ctrl.doColorThing('brown')">Brown</button>
+                    <button class="ink-button" ng-click="$ctrl.doColorThing('cream')">Cream</button>
+                    <button class="ink-button" ng-click="$ctrl.doColorThing('grey')">Grey</button>
+                    <button class="ink-button" ng-click="$ctrl.doColorThing('black')">Black</button>
+                    <button class="ink-button" ng-click="$ctrl.doColorThing('white')">White</button>
+                </div>
             </div>
-            <div class="top-space" ng-init="isMoodOpen = false" ng-show="isMoodOpen" id="moodButton">
-<button class="ink-button" ng-model="$ctrl.filters" value="-mood_id">Angry</button>
-<!-- I need the value to match up to the integer in the object's mood_id -->
-<button class="ink-button" ng-click="$ctrl.doMoodThing('anxious')">Anxious</button>
-<button class="ink-button" ng-click="$ctrl.doMoodThing('content')">Content</button>
-<button class="ink-button" ng-click="$ctrl.doMoodThing('fearful')">Fearful</button>
-<button class="ink-button" ng-click="$ctrl.doMoodThing('happy')">Happy</button>
-<button class="ink-button" ng-click="$ctrl.doMoodThing('hopeful')">Hopeful</button>
-<button class="ink-button" ng-click="$ctrl.doMoodThing('melancholic')">Melancholic</button>
-<button class="ink-button" ng-click="$ctrl.doMoodThing('peaceful')">Peaceful</button>
-<button class="ink-button" ng-click="$ctrl.doMoodThing('sad')">Sad</button>
-<button class="ink-button" ng-click="$ctrl.doMoodThing('silly')">Silly</button>
-<button class="ink-button" ng-click="$ctrl.doMoodThing('weird')">Weird</button>
-            </div>
-            <div class="top-space" ng-init="isColorOpen = false" ng-show="isColorOpen" id="colorButton">
-<button class="ink-button" ng-click="$ctrl.doColorThing('red')">Red</button>
-<button class="ink-button" ng-click="$ctrl.doColorThing('orange')">Orange</button>
-<button class="ink-button" ng-click="$ctrl.doColorThing('yellow')">Yellow</button>
-<button class="ink-button" ng-click="$ctrl.doColorThing('green')">Green</button>
-<button class="ink-button" ng-click="$ctrl.doColorThing('blue')">Blue</button>
-<button class="ink-button" ng-click="$ctrl.doColorThing('purple')">Purple</button>
-<button class="ink-button" ng-click="$ctrl.doColorThing('pbrown')">Brown</button>
-<button class="ink-button" ng-click="$ctrl.doColorThing('cream')">Cream</button>
-<button class="ink-button" ng-click="$ctrl.doColorThing('grey')">Grey</button>
-<button class="ink-button" ng-click="$ctrl.doColorThing('black')">Black</button>
-<button class="ink-button" ng-click="$ctrl.doColorThing('white')">White</button>
-            </div>
-        </div>
 
-    </form>
+        </form>
 
 
-    <div class="column-group top-space">
-        <div class="xlarge-30 large-30 medium-50 small-100 tiny-100 align-center" ng-repeat="uploaded_image in $ctrl.uploaded_images">
-            <div class="bottom-space left-space">
-                <img class="column ink-image" ng-src="{{uploaded_image.URL}}">
+        <div class="column-group top-space">
+            <div class="xlarge-30 large-30 medium-50 small-100 tiny-100 align-center" ng-repeat="uploaded_image in $ctrl.uploaded_images">
+                <div class="bottom-space left-space">
+                    <img class="column ink-image" ng-src="{{uploaded_image.URL}}">
 
-            </div>
-            <div class="over-top">
-                <h4 class="media-heading">
+                </div>
+                <div class="over-top">
+                    <h4 class="media-heading">
                   {{image.votes}}
                 </h4>
-                <!-- <div>
+                    <!-- <div>
                     <span am-time-ago="{{image.date}}"></span>
                 </div> -->
+                </div>
             </div>
         </div>
-    </div>
 </main>
