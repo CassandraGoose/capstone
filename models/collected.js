@@ -27,14 +27,14 @@ collected_images.jsonSchema = {
     user_id: {
       type: 'integer'
     },
-    moodId: {
-      type: 'integer'
+    mood: {
+      type: 'string'
     },
-    colorId: {
-      type: 'integer'
+    color: {
+      type: 'string'
     },
-    keywordId: {
-      type: 'integer'
+    keyword: {
+      type: 'string'
     },
     popularity: {
       type: 'integer'
@@ -50,32 +50,6 @@ collected_images.relationMappings = {
     join: {
       from: 'collected_images.id',
       to: 'people.id'
-    }
-  },
-  mood: {
-    relation: Model.HasManyRelation,
-    // The related model. This can be either a Model subclass constructor or an
-    // absolute file path to a module that exports one.
-    modelClass: mood,
-    join: {
-      from: 'collected_images.id',
-      to: 'mood.id'
-    }
-  },
-  color: {
-    relation: Model.HasManyRelation,
-    modelClass: color,
-    join: {
-      from: 'collected_images.id',
-      to: 'color.id'
-    }
-  },
-  keyword: {
-    relation: Model.HasManyRelation,
-    modelClass: keyword,
-    join: {
-      from: 'collected_images.id',
-      to: 'color.id'
     }
   }
 };
