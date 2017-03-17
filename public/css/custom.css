@@ -6,6 +6,13 @@ body {
   font-family: 'Armata', sans-serif;
 }
 
+.splashbackground {
+  background-image: url(/images/splash.jpg) !important;
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+}
+
 .buttondiv {
   display: flex;
   align-items: center;
@@ -19,6 +26,24 @@ body {
 
 }
 
+.card {
+  background-color: #b4b4b4;
+  max-width: 45%;
+}
+
+.bigcard {
+  background-color: #b4b4b4;
+  max-width: 65%;
+}
+
+.sidepad {
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+.above {
+  padding-top: 1em;
+}
 .logo {
   height: 30px;
   width: 30px;
@@ -26,4 +51,19 @@ body {
 
 .slightpad {
   margin-top: 8px;
+}
+
+.spacer {
+  height: 10em;
+}
+
+.spacerless {
+  height: 5em;
+}
+.extrabottom {
+  margin-bottom: 2em !important;
+}
+
+.extratop {
+  margin-top: 3em !important;
 }
