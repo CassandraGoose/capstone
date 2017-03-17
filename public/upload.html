@@ -1,5 +1,10 @@
-<form name="uploadForm" class="ink-form" novalidate>
-    <div class="control-group all-50 small-100 tiny-100" ng-class="{ 'has-error': uploadForm.$invalid }">
+<main class="ink-grid splashbackground">
+  <div class="spacerless">
+  </div>
+  <div class="bigcard push-center">
+    <h3 class="align-center above"> Upload an Image </h3>
+<form name="uploadForm" class="ink-form sidepad above bottom-space" novalidate>
+    <div class="control-group all-50 small-100 tiny-100 align-center" ng-class="{ 'has-error': uploadForm.$invalid }">
         <label for="title">Upload from URL</label>
         <input id="URL" name="URL" class="control" ng-minlength=5 placeholder="URL" ng-model="$ctrl.uploaded_images.URL" required>
         <span class="error" ng-show="uploadForm.title.$invalid">
@@ -8,18 +13,19 @@
               </span>
 
     </div>
-    <div class="control-group all-50 small-100 tiny-100" ng-class="{ 'has-error': uploadForm.$invalid }">
+    <div class="control-group all-50 small-100 tiny-100 align-center extrabottom" ng-class="{ 'has-error': uploadForm.$invalid }">
         <label for="title">Keyword</label>
-        <input id="URL" name="URL" class="control" ng-minlength=4 placeholder="Supply one keyword to describe your image" ng-model="$ctrl.uploaded_images.keyword" required>
+        <input id="URL" name="URL" class="control" ng-minlength=4 placeholder="Keyword" ng-model="$ctrl.uploaded_images.keyword" required>
         <span class="error" ng-show="uploadForm.title.$invalid">
-                <small class="error" ng-show="uploadForm.title.$error.minlength">pls change validate to url stuff
+                <small class="error" ng-show="uploadForm.title.$error.minlength">pls change validate to keyword stuff
                 </small>
               </span>
 
     </div>
-    <fieldset>
-        <legend>Choose a Mood that matches your uploaded image.</legend>
-        <div class="control-group">
+    <section class="column-group">
+      <h5 class="align-center"> Select a MOOD and COLOR that match your uploaded image </h5>
+    <fieldset class="small-100 medium-50 large-50 xlarge-50">
+        <div class="control-group small-100 medium-50 large-50 xlarge-50">
             <p class="label">Mood</p>
             <ul class="control unstyled">
                 <li><input type="radio" id="angry" name="angry" value="angry" ng-model="$ctrl.uploaded_images.mood"><label for="angry">Angry</label></li>
@@ -36,9 +42,8 @@
             </ul>
         </div>
     </fieldset>
-    <fieldset>
-        <legend>Choose a Color that matches your uploaded image.</legend>
-        <div class="control-group">
+    <fieldset class="small-100 medium-50 large-50 xlarge-50">
+        <div class="control-group small-100 medium-50 large-50 xlarge-50">
             <p class="label">Color</p>
             <ul class="control unstyled">
                 <li><input type="radio" id="red" name="red" value="red" ng-model="$ctrl.uploaded_images.color"><label for="red">Red</label></li>
@@ -55,8 +60,14 @@
             </ul>
         </div>
     </fieldset>
+    <div class="control append-button align-center" role="submit">
+        <button class="ink-button push-center" ng-click="$ctrl.uploadImage()" ng-disabled="postForm.$invalid" type="submit">submit</button>
+    </div>
+  </section>
 
-    <div class="control append-button" role="submit">
-        <button class="ink-button" ng-click="$ctrl.uploadImage()" ng-disabled="postForm.$invalid" type="submit">submit</button>
+
+    <div class="bottomsies">
     </div>
 </form>
+</div>
+</main>
