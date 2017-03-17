@@ -29,16 +29,23 @@ body {
 .card {
   background-color: #b4b4b4;
   max-width: 45%;
+  box-shadow: 0px 0px 15px #000000;
+
 }
 
 .bigcard {
   background-color: #b4b4b4;
   max-width: 65%;
+ box-shadow: 0px 0px 15px #000000;
 }
 
 .sidepad {
   padding-right: 1em;
   padding-left: 1em;
+}
+
+.extraleft {
+  padding-left: 2em;
 }
 
 .above {
