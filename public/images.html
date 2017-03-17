@@ -3,14 +3,14 @@
     <div class="column-group">
         <form class="small-30 top-space ink-form">
             <div class="control-group">
-                <div class "append-button" role="search">
-                    <input type="search" class="control" ng-model="theTerm" placeholder="Search By Keyword">
-                    <button class="ink-button" ng-click="$ctrl.doSortThing('keyword', theTerm)">Search</button>
+                <div class="append-button" role="search">
+                  <button class="ink-button push-right" ng-click="$ctrl.doSortThing('keyword', theTerm)">Search</button>
+                    <input type="search" class="control push-right" ng-model="theTerm" placeholder="Search By Keyword">
                     <a ng-click="isMoodOpen = !isMoodOpen"><button class="ink-button">Mood</button></a>
                     <a ng-click="isColorOpen = !isColorOpen"><button class="ink-button">Color</button></a>
                     <button class="ink-button" ng-model="$ctrl.filters" value="-uploaded_images.popularity">Top</button>
                 </div>
-                <div class="top-space" ng-init="isMoodOpen = false" ng-show="isMoodOpen" id="moodButton">
+                <div class="top-space align-center" ng-init="isMoodOpen = false" ng-show="isMoodOpen" id="moodButton">
                     <button class="ink-button" ng-click="$ctrl.doSortThing('mood', 'angry')">Angry</button>
                     <button class="ink-button" ng-click="$ctrl.doSortThing('mood','anxious')">Anxious</button>
                     <button class="ink-button" ng-click="$ctrl.doSortThing('mood', 'content')">Content</button>
@@ -23,7 +23,7 @@
                     <button class="ink-button" ng-click="$ctrl.doSortThing('mood', 'silly')">Silly</button>
                     <button class="ink-button" ng-click="$ctrl.doSortThing('mood', 'weird')">Weird</button>
                 </div>
-                <div class="top-space" ng-init="isColorOpen = false" ng-show="isColorOpen" id="colorButton">
+                <div class="top-space align-center" ng-init="isColorOpen = false" ng-show="isColorOpen" id="colorButton">
                     <button class="ink-button" ng-click="$ctrl.doSortThing('color', 'red')">Red</button>
                     <button class="ink-button" ng-click="$ctrl.doSortThing('color', 'orange')">Orange</button>
                     <button class="ink-button" ng-click="$ctrl.doSortThing('color', 'yellow')">Yellow</button>

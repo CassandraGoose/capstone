@@ -1,0 +1,29 @@
+html {
+  background-color: #b4b4b4;
+}
+
+body {
+  font-family: 'Armata', sans-serif;
+}
+
+.buttondiv {
+  display: flex;
+  align-items: center;
+  margin-top: 5pt;
+  left: 0;
+  right: 0;
+  width:100%;
+  z-index:100;
+  background-color: #2A2A2A;
+  height: 10vh;
+
+}
+
+.logo {
+  height: 30px;
+  width: 30px;
+}
+
+.slightpad {
+  margin-top: 8px;
+}
