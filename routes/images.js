@@ -12,6 +12,8 @@ router.get('/images/sort', (req, res, next) => {
       res.json(data);
     })
 })
+
+
 //
 // router.get('/images/:color', (req, res, next) => {
 //   console.log(req.params.color);
@@ -47,6 +49,10 @@ router.post('/upload', (req, res, next) => {
     .then(uploaded_images => res.json(uploaded_images[0]))
     .catch(err => next(err))
 })
+
+
+//for the user thing but i'm not sure how because he used queries
+
 
 
 // .insert(params(req))

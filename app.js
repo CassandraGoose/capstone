@@ -3,11 +3,14 @@ const path = require('path')
 const bodyParser = require('body-parser')
 var cors = require('express-cors')
 const app = express()
+var auth = require('./auth/index')
+
 
 if (process.env.NODE_ENV !== 'test') {
   const logger = require('morgan')
   app.use(logger('dev'))
 }
+
 
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')))
@@ -19,7 +22,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')))
 //   ]
 // }))
 
-
+app.use('/auth', auth)
 app.use('/api', require('./routes/images'))
   // app.use('/api/posts', require('./routes/comments'))
 
@@ -43,12 +46,15 @@ app.use(function(req, res, next) {
 // })
 
 app.use(function(err, req, res, next) {
-  res.locals.message = err.message
-  res.locals.error = req.app.get('env') === 'development' ? err : {}
-  console.log(err)
   res.status(err.status || 500)
-  res.json(err)
+
+  res.json({
+    message: err.message,
+    error: req.app.get('env') === 'development' ? err : {}
+  })
 })
+
+
 app.listen(3000);
 
 module.exports = app
