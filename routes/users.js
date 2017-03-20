@@ -45,7 +45,6 @@ router.post('/register', (req, res, next) => {
           bcrypt.hash(req.body.password, saltRounds)
             .then((hash) => {
               const person = {
-                username: req.body.username,
                 password: hash,
                 email: req.body.email
               }
@@ -77,8 +76,8 @@ router.post('/login', function(req, res, next) {
         bcrypt.compare(req.body.password, person.password)
         .then(function(result) {
           if(result) {
-var isSecure = req.app.get('env') != 'development'
-            res.cookie('person.id', person.id, {
+            var isSecure = req.app.get('env') != 'development';
+            res.cookie(person.id, person.id, {
               httpOnly: true,
               secure: isSecure,
               signed: true
@@ -90,6 +89,9 @@ var isSecure = req.app.get('env') != 'development'
             next(new Error('invalid login'))
           }
         })
+// .catch(function () {
+//      console.log("Promise Rejected, bitch");
+// })
       } else {
         next(new Error('invalid login'))
       }

@@ -14,14 +14,12 @@ function RegisterController($http, $stateParams, $state) {
 
   function register() {
     $http.post(BaseURL + '/register', {
-        username: vm.person.username,
         password: vm.person.password,
         email: vm.person.email
       })
       .then(function(response) {
         console.log("cyril voice: hello!");
         vm.person.push({
-          username: vm.person.username,
           password: vm.person.password,
           email: vm.person.email
         });

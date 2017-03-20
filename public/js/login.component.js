@@ -13,16 +13,16 @@ function LoginController($http, $stateParams, $state) {
 
   function login() {
     $http.post(BaseURL + '/login', {
-        username: vm.person.username,
-        password: vm.person.password
+      password: vm.person.password,
+      email: vm.person.email
       })
       .then(function(response) {
         console.log("cyril voice: hello!");
-        vm.person.push({
-          username: vm.person.username,
-          password: vm.person.password
+        vm.people.push({
+          password: vm.person.password,
+          email: vm.person.email
         });
-        delete vm.person;
+        delete vm.people;
       })
   }
 
