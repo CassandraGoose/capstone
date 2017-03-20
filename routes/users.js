@@ -68,34 +68,34 @@ router.post('/register', (req, res, next) => {
 })
 
 router.post('/login', function(req, res, next) {
-  if(validPerson(req.body)) {
+  if (validPerson(req.body)) {
     getOneByEmail(req.body.email)
-    .then(person => {
-      console.log('person', person);
-      if(person){
-        bcrypt.compare(req.body.password, person.password)
-        .then(function(result) {
-          if(result) {
-            var isSecure = req.app.get('env') != 'development';
-            res.cookie(person.id, person.id, {
-              httpOnly: true,
-              secure: isSecure,
-              signed: true
+      .then(person => {
+        console.log('person', person);
+        if (person) {
+          bcrypt.compare(req.body.password, person.password)
+            .then(function(result) {
+              if (result) {
+                var isSecure = req.app.get('env') != 'development';
+                res.cookie(person.id, person.id, {
+                  httpOnly: true,
+                  secure: isSecure,
+                  signed: true
+                })
+                res.json({
+                  message: "logging in bro"
+                })
+              } else {
+                next(new Error('invalid login'))
+              }
             })
-            res.json({
-              message: "logging in bro"
-            })
-          }else {
-            next(new Error('invalid login'))
-          }
-        })
-// .catch(function () {
-//      console.log("Promise Rejected, bitch");
-// })
-      } else {
-        next(new Error('invalid login'))
-      }
-    })
+            // .catch(function () {
+            //      console.log("Promise Rejected, bitch");
+            // })
+        } else {
+          next(new Error('invalid login'))
+        }
+      })
   } else {
     next(new Error('Invalid Login'))
   }

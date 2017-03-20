@@ -6,7 +6,6 @@ function RegisterController($http, $stateParams, $state) {
   const vm = this
   const BaseURL = '/api/auth'
   vm.register = register
-    //base urL?
 
   vm.$onInit = function() {
     console.log('register heyyyyyyybro');

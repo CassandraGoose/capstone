@@ -6,7 +6,7 @@
         <form name="loginForm" class="ink-form sidepad above bottom-space" novalidate>
             <div class="control-group all-50 small-100 tiny-100 align-center" ng-class="{ 'has-error': loginForm.$invalid }">
                 <label for="title">Email</label>
-                <input id="email" name="email" class="control" ng-minlength=5 placeholder="Email" ng-model="$ctrl.people.email" required>
+                <input id="email" name="email" class="control" ng-minlength=5 placeholder="Email" ng-model="$ctrl.person.email" required>
                 <span class="error" ng-show="loginForm.title.$invalid">
               <small class="error" ng-show="loginForm.title.$error.minlength">pls change validate to stuff
               </small>
@@ -15,7 +15,7 @@
             </div>
             <div class="control-group all-50 small-100 tiny-100 align-center" ng-class="{ 'has-error': loginForm.$invalid }">
                 <label for="title">Password</label>
-                <input id="Password" type="password" name="password" class="control" ng-minlength=5 placeholder="Password" ng-model="$ctrl.people.password" required>
+                <input id="Password" type="password" name="password" class="control" ng-minlength=5 placeholder="Password" ng-model="$ctrl.person.password" required>
                 <span class="error" ng-show="loginForm.title.$invalid">
               <small class="error" ng-show="loginForm.title.$error.minlength">pls change validate to stuff
               </small>
