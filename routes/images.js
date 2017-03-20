@@ -51,6 +51,22 @@ router.post('/upload', (req, res, next) => {
 })
 
 
+router.get("https://apicloud-colortag.p.mashape.com/tag-url.json?palette=simple&sort=relevance&url=" + imageURL)
+  .header("X-Mashape-Key", "long string of crazyness here")
+  .header("Accept", "applicatoin/json")
+  .end(function(result) {
+    console.log(result.status, result.headers, result.body);
+  })
+
+router.post("https://apicloud-colortag.p.mashape.com/tag-file.json")
+  .header("X-Mashape-Key", "long string of crazyness")
+  .attach("image", fs.createReadStream("<image files goes here>"))
+  .field("palette", "simple")
+  .field("sort", "relavance")
+  .end(function(result) {
+    console.log(result.status, result.headers, result.body);
+  })
+
 //for the user thing but i'm not sure how because he used queries
 
 
