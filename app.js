@@ -1,9 +1,9 @@
 const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
+var cookieParser = require('cookie-parser')
 var cors = require('express-cors')
 const app = express()
-var auth = require('./auth/index')
 
 
 if (process.env.NODE_ENV !== 'test') {
@@ -11,7 +11,7 @@ if (process.env.NODE_ENV !== 'test') {
   app.use(logger('dev'))
 }
 
-
+app.use(cookieParser(process.env.COOKIE_SECRET))
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, '/../', 'node_modules')))
@@ -22,9 +22,10 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')))
 //   ]
 // }))
 
-app.use('/auth', auth)
 app.use('/api', require('./routes/images'))
-  // app.use('/api/posts', require('./routes/comments'))
+app.use('/api/auth', require('./routes/users'))
+
+// app.use('/api/posts', require('./routes/comments'))
 
 app.use('*', function(req, res, next) {
   res.sendFile('index.html', {
