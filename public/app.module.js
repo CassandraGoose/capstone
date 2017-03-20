@@ -1,6 +1,6 @@
 (function() {
 
-  angular.module('app', ['ui.router', 'infinite-scroll'])
+  angular.module('app', ['ui.router'])
     .component('splash', {
       templateUrl: '/splash.html',
       controller: "SplashController"

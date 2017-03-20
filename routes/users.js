@@ -3,7 +3,6 @@ const router = express.Router()
 const knex = require('../db')
 var bcrypt = require('bcryptjs')
 const saltRounds = 10
-
 //bring in the function getOneByEmail
 router.get('/register', (req, res) => {
   res.status(200).json({
@@ -99,7 +98,6 @@ router.post('/login', function(req, res, next) {
   } else {
     next(new Error('Invalid Login'))
   }
-
 })
 
 module.exports = router

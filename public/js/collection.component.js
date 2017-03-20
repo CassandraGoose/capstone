@@ -4,7 +4,7 @@ angular
 
 function CollectionController($http, $stateParams, $state) {
   const vm = this
-  const BaseURL = '/api'
+  const BaseURL = '/api/user'
 
   vm.$onInit = function() {
     $http.get(BaseURL + '/collection').then(function(response) {

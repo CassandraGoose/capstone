@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const knex = require('../db')
+const authMiddleware = require('./middleware')
+
 
 router.get('/images/sort', (req, res, next) => {
   var sortType = req.query.sortType
@@ -30,8 +32,8 @@ router.get('/images', (req, res, next) => {
     .catch(err => next(err))
 })
 
-router.get('/collection', (req, res, next) => {
-  knex('collected_images')
+router.get('/user/:id/collection/', authMiddleware.allowAccess, (req, res, next) => {
+  knex('collected_images').where(req.params.id, 'user_id')
     .then(collected_images => res.json(collected_images))
 })
 

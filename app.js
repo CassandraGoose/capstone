@@ -4,17 +4,21 @@ const bodyParser = require('body-parser')
 var cookieParser = require('cookie-parser')
 var cors = require('express-cors')
 const app = express()
+require('dotenv').config()
 
+var authMiddleware = require('./routes/middleware')
 
 if (process.env.NODE_ENV !== 'test') {
   const logger = require('morgan')
   app.use(logger('dev'))
 }
 
-app.use(cookieParser(process.env.COOKIE_SECRET))
+
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, '/../', 'node_modules')))
+
+app.use(cookieParser(process.env.COOKIE_SECRET))
 
 // app.use(cors({
 //   allowedOrigins: [
@@ -24,7 +28,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')))
 
 app.use('/api', require('./routes/images'))
 app.use('/api/auth', require('./routes/users'))
-
+app.use('/user', authMiddleware.ensureLogginIn, require('./routes/images'))
 // app.use('/api/posts', require('./routes/comments'))
 
 app.use('*', function(req, res, next) {

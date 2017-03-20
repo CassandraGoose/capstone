@@ -19,7 +19,7 @@
         component: 'images'
       }).state({
         name: 'collection',
-        url: '/collection',
+        url: '/user/collection',
         component: 'collection'
       }).state({
         name: 'upload',
