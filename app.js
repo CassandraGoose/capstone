@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
+var cookieParser = require('cookie-parser')
 var cors = require('express-cors')
 const app = express()
 
@@ -25,6 +26,7 @@ app.use('/api', require('./routes/images'))
 app.use('/api/auth', require('./routes/users'))
 
 // app.use('/api/posts', require('./routes/comments'))
+app.use(cookieParser(process.env.COOKIE_SECRET))
 
 app.use('*', function(req, res, next) {
   res.sendFile('index.html', {

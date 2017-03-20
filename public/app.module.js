@@ -21,4 +21,12 @@
       templateUrl: '/about.html',
       controller: "AboutController"
     })
+    .component('register', {
+      templateUrl: '/register.html',
+      controller: "RegisterController"
+    })
+    .component('login', {
+      templateUrl: '/login.html',
+      controller: "LoginController"
+    })
 }())

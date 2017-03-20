@@ -5,7 +5,7 @@ var bcrypt = require('bcryptjs')
 const saltRounds = 10
 
 //bring in the function getOneByEmail
-router.get('/signup', (req, res) => {
+router.get('/register', (req, res) => {
   res.status(200).json({
     message: 'working'
   })
@@ -36,7 +36,7 @@ function createPerson(person) {
   })
 }
 
-router.post('/signup', (req, res, next) => {
+router.post('/register', (req, res, next) => {
   if (validPerson(req.body)) {
     getOneByEmail(req.body.email)
       .then(person => {
@@ -68,7 +68,7 @@ router.post('/signup', (req, res, next) => {
   }
 })
 
-router.post('/signin', function(req, res, next) {
+router.post('/login', function(req, res, next) {
   if(validPerson(req.body)) {
     getOneByEmail(req.body.email)
     .then(person => {
@@ -77,8 +77,13 @@ router.post('/signin', function(req, res, next) {
         bcrypt.compare(req.body.password, person.password)
         .then(function(result) {
           if(result) {
+var isSecure = req.app.get('env') != 'development'
+            res.cookie('person.id', person.id, {
+              httpOnly: true,
+              secure: isSecure,
+              signed: true
+            })
             res.json({
-              result,
               message: "logging in bro"
             })
           }else {
