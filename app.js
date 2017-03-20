@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 var cors = require('express-cors')
 const app = express()
 var auth = require('./auth/index')
+const cloudinary = require('cloudinary')
 
 
 if (process.env.NODE_ENV !== 'test') {

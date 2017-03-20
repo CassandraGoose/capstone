@@ -1,18 +1,34 @@
 const express = require('express')
 const router = express.Router()
 const knex = require('../db')
+cons cloudinary = require('cloudinary')
 
 router.get('/images/sort', (req, res, next) => {
   var sortType = req.query.sortType
   var sortValue = req.query.sortValue
 
   knex('uploaded_images')
-  .where(sortType, sortValue)
+    .where(sortType, sortValue)
     .then(function(data) {
       res.json(data);
     })
 })
 
+router.get("https://apicloud-colortag.p.mashape.com/tag-url.json?palette=simple&sort=relevance&url=" + imageURL)
+  .header("X-Mashape-Key", "long string of crazyness here")
+  .header("Accept", "applicatoin/json")
+  .end(function(result) {
+    console.log(result.status, result.headers, result.body);
+  })
+
+router.post("https://apicloud-colortag.p.mashape.com/tag-file.json")
+  .header("mashup key here", "long string of crazyness")
+  .attach("image", fs.createReadStream("<image files goes here>"))
+  .field("palette", "simple")
+  .field("sort", "relavance")
+  .end(function(result) {
+    console.log(result.status, result.headers, result.body);
+  })
 
 //
 // router.get('/images/:color', (req, res, next) => {
@@ -114,3 +130,4 @@ router.post('/upload', (req, res, next) => {
 // }
 
 module.exports = router
+orts = router
