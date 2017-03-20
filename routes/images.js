@@ -15,17 +15,6 @@ router.get('/images/sort', (req, res, next) => {
     })
 })
 
-
-//
-// router.get('/images/:color', (req, res, next) => {
-//   console.log(req.params.color);
-//   knex('uploaded_images')
-//   .where('color', req.params.color.split(':')[1]).select('*')
-//     .then(function(data) {
-//       res.json(data);
-//     });
-// })
-
 router.get('/images', (req, res, next) => {
   knex('uploaded_images')
     .then(uploaded_images => res.json(uploaded_images))
