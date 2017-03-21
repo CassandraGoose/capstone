@@ -6,11 +6,11 @@ const authMiddleware = require('./middleware')
 //where do we get the imageURL???? i need it from the upload form...
 
 unirest.get("https://apicloud-colortag.p.mashape.com/tag-url.json?palette=simple&sort=relevance&url=" + imageURL)
-.header("X-Mashape-Key", process.env.MASHAPE_KEY)
-.header("Accept", "application/json")
-.end(function (result) {
-  console.log(result.status, result.headers, result.body);
-});
+  .header("X-Mashape-Key", process.env.MASHAPE_KEY)
+  .header("Accept", "application/json")
+  .end(function(result) {
+    console.log(result.status, result.headers, result.body);
+  });
 
 
 //the one below this is for uploading images, but i'm not sure i'll get to that. you know?

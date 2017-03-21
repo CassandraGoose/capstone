@@ -9,7 +9,7 @@ router.get('/images/sort', (req, res) => {
   var sortValue = req.query.sortValue
 
   knex('uploaded_images')
-  .where(sortType, sortValue)
+    .where(sortType, sortValue)
     .then(function(data) {
       res.json(data);
     })
@@ -23,8 +23,8 @@ router.get('/images', (req, res, next) => {
 
 router.get('/user/:id/collection/', authMiddleware.allowAccess, (req, res) => {
 
-// unsure about the what to compare ids to. is it just user_id? 
-  knex('collected_images').where(req.params.id, 'collected_images.user_id')
+  // unsure about the what to compare ids to. is it just user_id?
+  knex('collected_images').where('collected_images.user_id', req.params.id)
     .then(collected_images => res.json(collected_images))
 })
 

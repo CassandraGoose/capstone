@@ -9,6 +9,14 @@ function RegisterController($http, $stateParams, $state) {
 
   vm.$onInit = function() {
     console.log('register heyyyyyyybro');
+    redirectIfLoggedIn()
+  }
+
+  function redirectIfLoggedIn() {
+    if (localStorage.id) {
+      //howwwwww
+      $state.go('images')
+    }
   }
 
   function register() {
@@ -18,10 +26,8 @@ function RegisterController($http, $stateParams, $state) {
       })
       .then(function(response) {
         console.log("cyril voice: hello!");
-        vm.person.push({
-          password: vm.person.password,
-          email: vm.person.email
-        });
+        $state.go('login')
+
         delete vm.person;
       })
   }

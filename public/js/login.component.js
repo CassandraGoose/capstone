@@ -6,25 +6,29 @@ function LoginController($http, $stateParams, $state) {
   const vm = this
   const BaseURL = '/api/auth'
   vm.login = login
+  vm.redirectIfLoggedIn = redirectIfLoggedIn
 
   vm.$onInit = function() {
     console.log('login heyyyyyyybro');
+    redirectIfLoggedIn()
+  }
+
+  function redirectIfLoggedIn() {
+    if (localStorage.id) {
+      //howwwwww
+      $state.go('images')
+    }
   }
 
   function login() {
-    console.log(vm.person);
     $http.post(BaseURL + '/login', {
         password: vm.person.password,
         email: vm.person.email
       })
       .then(function(response) {
-        console.log("cyril voice: hello!");
-        vm.person.push({
-          password: vm.person.password,
-          email: vm.person.email
-        });
+        localStorage.setItem('id', response.data.message)
+        $state.go('images')
         delete vm.person;
       })
   }
-
 }

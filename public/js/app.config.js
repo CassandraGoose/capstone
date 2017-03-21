@@ -37,6 +37,10 @@
         name: 'login',
         url: '/login',
         component: 'login'
+      }).state({
+        name: 'logout',
+        url: '/logout',
+        component: 'logout'
       })
     $urlRouterProvider.otherwise('/')
   }

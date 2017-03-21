@@ -29,4 +29,8 @@
       templateUrl: '/login.html',
       controller: "LoginController"
     })
+    .component('logout', {
+      templateUrl: '/logout.html',
+      controller: "LogoutController"
+    })
 }())

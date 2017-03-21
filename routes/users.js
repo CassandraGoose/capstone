@@ -3,7 +3,7 @@ const router = express.Router()
 const knex = require('../db')
 var bcrypt = require('bcryptjs')
 const saltRounds = 10
-//bring in the function getOneByEmail
+  //bring in the function getOneByEmail
 router.get('/register', (req, res) => {
   res.status(200).json({
     message: 'working'
@@ -34,6 +34,13 @@ function createPerson(person) {
     return ids[0]
   })
 }
+
+router.get('/logout', (req, res, next) => {
+  res.clearCookie('person_id')
+  res.json({
+    message: 'cookie cleared'
+  })
+})
 
 router.post('/register', (req, res, next) => {
   if (validPerson(req.body)) {
@@ -76,21 +83,20 @@ router.post('/login', function(req, res, next) {
             .then(function(result) {
               if (result) {
                 var isSecure = req.app.get('env') != 'development';
-                res.cookie(person.id, person.id, {
+                res.cookie('person_id', person.id, {
                   httpOnly: true,
                   secure: isSecure,
                   signed: true
                 })
+                console.log(person.id);
+
                 res.json({
-                  message: "logging in bro"
+                  message: person.id
                 })
               } else {
                 next(new Error('invalid login'))
               }
             })
-            // .catch(function () {
-            //      console.log("Promise Rejected, bitch");
-            // })
         } else {
           next(new Error('invalid login'))
         }
