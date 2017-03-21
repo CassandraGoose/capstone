@@ -22,6 +22,8 @@ router.get('/images', (req, res, next) => {
 })
 
 router.get('/user/:id/collection/', authMiddleware.allowAccess, (req, res) => {
+
+// unsure about the what to compare ids to. is it just user_id? 
   knex('collected_images').where(req.params.id, 'collected_images.user_id')
     .then(collected_images => res.json(collected_images))
 })
