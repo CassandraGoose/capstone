@@ -4,7 +4,8 @@ function ensureLogginIn(req, res, next) {
   if(req.signedCookies.person_id) {
     next()
   } else {
-    res.status(401)
+    //can i do it like this???? the redirect before the error and such
+    res.status(401).redirect('/')
     next(new Error('Un-AUTHORIZED'))
   }
 }
@@ -13,8 +14,9 @@ function allowAccess(req, res, next) {
   if(req.signedCookies.person_id == req.params.id) {
     next()
   } else {
-    res.status(401)
-    nex(new Error('Un-Authorized'))
+    //can i do it like this???? the redirect before the error and such
+    res.status(401).redirect('/')
+    next(new Error('Un-Authorized'))
   }
 }
 
