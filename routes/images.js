@@ -4,7 +4,7 @@ const knex = require('../db')
 const authMiddleware = require('./middleware')
 
 
-router.get('/images/sort', (req, res, next) => {
+router.get('/images/sort', (req, res) => {
   var sortType = req.query.sortType
   var sortValue = req.query.sortValue
 
@@ -21,7 +21,9 @@ router.get('/images', (req, res, next) => {
     .catch(err => next(err))
 })
 
-router.get('/user/:id/collection/', authMiddleware.allowAccess, (req, res, next) => {
+router.get('/user/:id/collection/', authMiddleware.allowAccess, (req, res) => {
+
+// unsure about the what to compare ids to. is it just user_id? 
   knex('collected_images').where(req.params.id, 'collected_images.user_id')
     .then(collected_images => res.json(collected_images))
 })
