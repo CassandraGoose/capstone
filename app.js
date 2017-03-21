@@ -30,7 +30,7 @@ app.use('/api', require('./routes/images'))
 app.use('/api/auth', require('./routes/users'))
 app.use('/api/color', require('./routes/colortag'))
 app.use('/user', authMiddleware.ensureLogginIn, require('./routes/images'))
-// app.use('/api/posts', require('./routes/comments'))
+  // app.use('/api/posts', require('./routes/comments'))
 
 app.use('*', function(req, res, next) {
   res.sendFile('index.html', {
