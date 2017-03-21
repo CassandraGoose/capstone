@@ -1,16 +1,42 @@
 const express = require('express')
 const router = express.Router()
 const knex = require('../db')
-const authMiddleware = require('./middleware')
-
+const dotenv = require('dotenv').config()
+var request = require('request')
 //where do we get the imageURL???? i need it from the upload form...
 
-unirest.get("https://apicloud-colortag.p.mashape.com/tag-url.json?palette=simple&sort=relevance&url=" + imageURL)
-  .header("X-Mashape-Key", process.env.MASHAPE_KEY)
-  .header("Accept", "application/json")
-  .end(function(result) {
-    console.log(result.status, result.headers, result.body);
-  });
+// router.get("https://apicloud-colortag.p.mashape.com/tag-url.json?palette=simple&sort=relevance&url=" + imageURL)
+//   .header("X-Mashape-Key", process.env.MASHAPE_KEY)
+//   .header("Accept", "application/json")
+//   .end(function(result) {
+//     console.log(result.status, result.headers, result.body);
+//   });
+
+
+///yeah i don't remember what i'm fucking doing.
+
+
+router.post('/dothething', (req, res, next) => {
+    console.log('HELLLLOOOOO?????1!!!! WHY WONT YOU JUST FUCKING WORRRRRKKKKK');
+    let imageURL = req.body.imageURL
+    console.log(imageURL);
+    let API_KEY = process.env.MASHAPE_KEY
+    request({
+        url: "https://apicloud-colortag.p.mashape.com/tag-url.json?palette=simple&sort=weight&url=" + imageURL,
+        method: 'GET',
+        headers: {
+            'X-Mashape-Key': API_KEY,
+            'Accept': 'application/json'
+        }
+    }, function(error, response, body){
+        if(error) {
+            console.log(error);
+        } else {
+            console.log(response.statusCode, body)
+            res.send(body)
+        }
+    });
+  })
 
 
 //the one below this is for uploading images, but i'm not sure i'll get to that. you know?
@@ -50,3 +76,4 @@ unirest.get("https://apicloud-colortag.p.mashape.com/tag-url.json?palette=simple
 //   ]
 // }
 //so change things to post to db with color. then err thing else shoudl still work, aye?
+module.exports = router
