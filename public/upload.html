@@ -24,6 +24,7 @@
     </div>
     <section class="column-group">
       <h5 class="align-center"> Select a MOOD and COLOR that match your uploaded image </h5>
+
     <fieldset class="small-100 medium-50 large-50 xlarge-50">
         <div class="control-group small-100 medium-50 large-50 xlarge-50">
             <p class="label">Mood</p>
@@ -42,7 +43,7 @@
             </ul>
         </div>
     </fieldset>
-    <fieldset class="small-100 medium-50 large-50 xlarge-50">
+    <!-- <fieldset class="small-100 medium-50 large-50 xlarge-50">
         <div class="control-group small-100 medium-50 large-50 xlarge-50">
             <p class="label">Color</p>
             <ul class="control unstyled">
@@ -59,7 +60,7 @@
                 <li><input type="radio" id="white" name="white" value="white" ng-model="$ctrl.uploaded_images.color"><label for="white">White</label></li>
             </ul>
         </div>
-    </fieldset>
+    </fieldset> -->
     <div class="control append-button align-center" role="submit">
         <button class="ink-button push-center" ng-click="$ctrl.toBackend()" ng-disabled="postForm.$invalid" type="submit">submit</button>
     </div>

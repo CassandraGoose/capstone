@@ -31,13 +31,6 @@ function UploadController($http, $stateParams, $state) {
       })
       .then(function(response) {
         console.log("cyril voice: hello!");
-        vm.uploaded_images.push({
-          URL: vm.uploaded_images.URL,
-          mood: vm.uploaded_images.mood,
-          color: img,
-          keyword: vm.uploaded_images.keyword,
-          popularity: 0
-        });
         delete vm.uploaded_images;
       })
   }
