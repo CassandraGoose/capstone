@@ -8,17 +8,14 @@ exports.seed = function(knex, Promise) {
 
       const fewPeople = [{
         id: 1,
-        username: 'Cassandra',
         password: bcrypt.hashSync('Sevenwordstomakeyouloveme4', salt),
         email: 'cassandra.torske@gmail.com'
       }, {
         id: 2,
-        username: 'Panzer',
         password: bcrypt.hashSync('123456', salt),
         email: 'panzerdog@gmail.com'
       }, {
         id: 3,
-        username: 'Kvothe',
         password: bcrypt.hashSync('denna4eva', salt),
         email: 'kingkiller@chronicles.com'
       }]

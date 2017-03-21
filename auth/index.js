@@ -5,13 +5,13 @@ var bcrypt = require('bcryptjs');
 const saltRounds = 10;
 
 //bring in the fucntion getOneByEmail
-router.get('/', (req, res) => {
+router.get('/api/signup', (req, res) => {
   res.json({
     message: 'working'
   })
 })
 
-function validUser(user) {
+function validPerson(user) {
   const validEmail = typeof user.email === 'string' &&
     user.email.trim() != '';
   const validPassword = typeof user.password === 'string' &&
@@ -30,21 +30,21 @@ function creatething(user) {
   })
 }
 
-router.post('/signup', (req, res, next) => {
-  if (validUser(req.body)) {
-    People.getOneByEmail(req.body.email)
-      .then(user => {
-        console.log('people', people);
-        if (!people) {
+router.post('/api/signup', (req, res, next) => {
+  if (validPerson(req.body)) {
+    Person.getOneByEmail(req.body.email)
+      .then(person => {
+        console.log('person', person);
+        if (!person) {
           bcrypt.hash(req.body.password, saltRounds)
             .then((hash) => {
-              const user = {
+              const person = {
                 username: req.body.username,
                 email: req.body.email,
                 password: hash
               }
 
-              People.create(user)
+              Person.create()
                 .then(id => {
                   res.json({
                     id,

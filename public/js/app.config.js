@@ -19,7 +19,7 @@
         component: 'images'
       }).state({
         name: 'collection',
-        url: '/collection',
+        url: '/user/collection',
         component: 'collection'
       }).state({
         name: 'upload',
@@ -29,6 +29,14 @@
         name: 'about',
         url: '/about',
         component: 'about'
+      }).state({
+        name: 'register',
+        url: '/register',
+        component: 'register'
+      }).state({
+        name: 'login',
+        url: '/login',
+        component: 'login'
       })
     $urlRouterProvider.otherwise('/')
   }

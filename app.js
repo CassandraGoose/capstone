@@ -1,10 +1,12 @@
 const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
+var cookieParser = require('cookie-parser')
 var cors = require('express-cors')
 const app = express()
-var auth = require('./auth/index')
+require('dotenv').config()
 
+var authMiddleware = require('./routes/middleware')
 
 if (process.env.NODE_ENV !== 'test') {
   const logger = require('morgan')
@@ -16,15 +18,18 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, '/../', 'node_modules')))
 
+app.use(cookieParser(process.env.COOKIE_SECRET))
+
 // app.use(cors({
 //   allowedOrigins: [
 //     'http://127.0.0.1:3000/'
 //   ]
 // }))
 
-app.use('/auth', auth)
 app.use('/api', require('./routes/images'))
-  // app.use('/api/posts', require('./routes/comments'))
+app.use('/api/auth', require('./routes/users'))
+app.use('/user', authMiddleware.ensureLogginIn, require('./routes/images'))
+// app.use('/api/posts', require('./routes/comments'))
 
 app.use('*', function(req, res, next) {
   res.sendFile('index.html', {
