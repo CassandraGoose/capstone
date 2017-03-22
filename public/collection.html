@@ -4,7 +4,7 @@
         <form class="small-30 top-space ink-form">
             <div class="control-group">
                 <div class "append-button" role="search">
-                  <button class="ink-button push-right" ng-model="$ctrl.search">Search</button>
+                    <button class="ink-button push-right" ng-model="$ctrl.search">Search</button>
 
                     <input type="search" class="control push-right" ng-model=$ctrl.search placeholder="Search By Keyword">
                     <a ng-click="isMoodOpen = !isMoodOpen"><button class="ink-button">Mood</button></a>
@@ -12,31 +12,30 @@
                     <button class="ink-button">Top</button>
                 </div>
                 <div class="top-space" ng-init="isMoodOpen = false" ng-show="isMoodOpen" id="moodButton">
-<button class="ink-button" ng-model="$ctrl.filters" value="-mood_id">Angry</button>
-<!-- I need the value to match up to the integer in the object's mood_id -->
-<button class="ink-button" ng-model="$ctrl.filters" value="mood_id">Anxious</button>
-<button class="ink-button" ng-model="$ctrl.filters" value="3">Content</button>
-<button class="ink-button" ng-model="$ctrl.filters" value="4">Fearful</button>
-<button class="ink-button" ng-model="$ctrl.filters" value="5">Happy</button>
-<button class="ink-button" ng-model="$ctrl.filters" value="6">Hopeful</button>
-<button class="ink-button" ng-model="$ctrl.filters" value="7">Melancholic</button>
-<button class="ink-button" ng-model="$ctrl.filters" value="8">Peaceful</button>
-<button class="ink-button" ng-model="$ctrl.filters" value="9">Sad</button>
-<button class="ink-button" ng-model="$ctrl.filters" value="10">Silly</button>
-<button class="ink-button" ng-model="$ctrl.filters" value="11">Weird</button>
+                    <button class="ink-button" ng-model="$ctrl.filters" value="-mood_id">Angry</button>
+                    <button class="ink-button" ng-model="$ctrl.filters" value="mood_id">Anxious</button>
+                    <button class="ink-button" ng-model="$ctrl.filters" value="3">Content</button>
+                    <button class="ink-button" ng-model="$ctrl.filters" value="4">Fearful</button>
+                    <button class="ink-button" ng-model="$ctrl.filters" value="5">Happy</button>
+                    <button class="ink-button" ng-model="$ctrl.filters" value="6">Hopeful</button>
+                    <button class="ink-button" ng-model="$ctrl.filters" value="7">Melancholic</button>
+                    <button class="ink-button" ng-model="$ctrl.filters" value="8">Peaceful</button>
+                    <button class="ink-button" ng-model="$ctrl.filters" value="9">Sad</button>
+                    <button class="ink-button" ng-model="$ctrl.filters" value="10">Silly</button>
+                    <button class="ink-button" ng-model="$ctrl.filters" value="11">Weird</button>
                 </div>
                 <div class="top-space" ng-init="isColorOpen = false" ng-show="isColorOpen" id="colorButton">
-<button class="ink-button">Red</button>
-<button class="ink-button">Orange</button>
-<button class="ink-button">Yellow</button>
-<button class="ink-button">Green</button>
-<button class="ink-button">Blue</button>
-<button class="ink-button">Purple</button>
-<button class="ink-button">Brown</button>
-<button class="ink-button">Cream</button>
-<button class="ink-button">Grey</button>
-<button class="ink-button">Black</button>
-<button class="ink-button">White</button>
+                    <button class="ink-button">Red</button>
+                    <button class="ink-button">Orange</button>
+                    <button class="ink-button">Yellow</button>
+                    <button class="ink-button">Green</button>
+                    <button class="ink-button">Blue</button>
+                    <button class="ink-button">Purple</button>
+                    <button class="ink-button">Brown</button>
+                    <button class="ink-button">Cream</button>
+                    <button class="ink-button">Grey</button>
+                    <button class="ink-button">Black</button>
+                    <button class="ink-button">White</button>
                 </div>
             </div>
 
@@ -50,15 +49,6 @@
             <div class="xlarge-30 large-30 medium-50 small-100 tiny-100 align-center" ng-repeat="collected_image in $ctrl.collected_images | orderBy:$ctrl.filters | filter:$ctrl.search">
                 <div class="bottom-space left-space">
                     <img class="column ink-image" ng-src="{{collected_image.URL}}">
-
-                </div>
-                <div class="over-top">
-                    <h4 class="media-heading">
-                  {{image.votes}}
-                </h4>
-                    <!-- <div>
-                    <span am-time-ago="{{image.date}}"></span>
-                </div> -->
                 </div>
             </div>
         </div>

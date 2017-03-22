@@ -10,15 +10,27 @@ function ImagesController($http, $stateParams, $state) {
   vm.$onInit = function() {
     $http.get(BaseURL + '/images').then(function(response) {
       vm.uploaded_images = response.data
-      console.log(vm.uploaded_images)
     })
+  }
+
+  //not sure this works below
+  vm.toBackendCollection = function(image) {
+    console.log(image)
+    $http.post('/api/images/collect', {
+        image: image,
+        user_id: localStorage.id
+      })
+      .then(function(response) {
+        console.log('backendcollection function working')
+      })
   }
 
   vm.doSortThing = function(sortType, sortValue) {
     console.log(`${BaseURL}/images/sort?sortType=${sortType}&sortValue=${sortValue}`);
-      $http.get(`${BaseURL}/images/sort?sortType=${sortType}&sortValue=${sortValue}`)
-        .then(function(data) {
-          vm.uploaded_images = data.data;
-        })
-    }
+    $http.get(`${BaseURL}/images/sort?sortType=${sortType}&sortValue=${sortValue}`)
+      .then(function(data) {
+        vm.uploaded_images = data.data;
+      })
+  }
+
 }
