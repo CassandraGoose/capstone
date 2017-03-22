@@ -28,13 +28,31 @@ router.get('/user/:id/collection/', authMiddleware.allowAccess, (req, res) => {
     .then(collected_images => res.json(collected_images))
 })
 
+
+router.post('/images/collect', (req, res, next) => {
+  console.log(req.body.image)
+  var collectedInfo = {
+    URL: req.body.image.URL,
+    user_id: req.body.user_id,
+    mood: req.body.image.mood,
+    color: req.body.image.color,
+    keyword: req.body.image.keyword
+  }
+  knex('collected_images')
+    .insert(collectedInfo)
+    .then(collected_images => res.json(collected_images[0]))
+    .catch(err => next(err))
+})
+
 router.post('/images/:id', (req, res, next) => {
   knex('uploaded_images')
     .update('popularity', knex.raw('popularity + 1'))
     .where('uploaded_images.id', req.params.id)
-    .then( () => {knex('uploaded_images').where('uploaded_images.id', req.params.id).first()
+    .then(() => {
+      knex('uploaded_images').where('uploaded_images.id', req.params.id).first()
       console.log('check popularity please');
     })
+    .catch(err => next(err))
 })
 
 router.post('/upload', (req, res, next) => {
