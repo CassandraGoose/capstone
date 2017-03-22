@@ -21,11 +21,13 @@ router.get('/images', (req, res, next) => {
     .catch(err => next(err))
 })
 
-router.get('/user/:id/collection/', authMiddleware.allowAccess, (req, res) => {
-
-  // unsure about the what to compare ids to. is it just user_id?
-  knex('collected_images').where('collected_images.user_id', req.params.id)
-    .then(collected_images => res.json(collected_images))
+router.post('/user/collection', (req, res) => {
+  console.log(req.body.user_id);
+  knex('collected_images').where('collected_images.user_id', req.body.user_id)
+    .then(collected_images => {
+      console.log(collected_images);
+      res.json(collected_images);
+    })
 })
 
 
