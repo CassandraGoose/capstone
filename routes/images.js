@@ -15,6 +15,19 @@ router.get('/images/sort', (req, res) => {
     })
 })
 
+router.get('/user/collection/sort', (req, res) => {
+  var sortType = req.query.sortType
+  console.log(req.query.sortType);
+  var sortValue = req.query.sortValue
+  console.log(req.query.sortValue);
+  knex('collected_images')
+    .where(sortType, sortValue)
+    .then(function(data) {
+      console.log(data);
+      res.json(data);
+    })
+})
+
 router.get('/images', (req, res, next) => {
   knex('uploaded_images')
     .then(uploaded_images => res.json(uploaded_images))
