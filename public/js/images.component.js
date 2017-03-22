@@ -10,7 +10,6 @@ function ImagesController($http, $stateParams, $state) {
   vm.$onInit = function() {
     $http.get(BaseURL + '/images').then(function(response) {
       vm.uploaded_images = response.data
-      console.log(vm.uploaded_images)
     })
   }
 
