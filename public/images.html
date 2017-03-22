@@ -46,7 +46,7 @@
             <div class="xlarge-30 large-30 medium-50 small-100 tiny-100 align-center" ng-repeat="uploaded_image in $ctrl.uploaded_images | orderBy:$ctrl.filters" >
                 <figure class="ink-image bottom-space left-space">
                     <img ng-init="isButtonOpen = false" ng-mouseover="isButtonOpen = !isButtonOpen" class="column" ng-src="{{uploaded_image.URL}}">
-                    <figcaption ng-click="$ctrl.toBackendCollection(uploaded_iamge)" ng-mouseout="isButtonOpen = !isButtonOpen" ng-init="isButtonOpen = false" ng-show="isButtonOpen" class="dark over-bottom">
+                    <figcaption ng-click="$ctrl.toBackendCollection(uploaded_image)" ng-mouseout="isButtonOpen = !isButtonOpen" ng-init="isButtonOpen = false" ng-show="isButtonOpen" class="dark over-bottom">
                       collect
                     </figcaption>
                 </figure>

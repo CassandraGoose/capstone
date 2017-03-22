@@ -15,7 +15,7 @@ function ImagesController($http, $stateParams, $state) {
 
   //not sure this works below
   vm.toBackendCollection = function(image) {
-    console.log(localStorage)
+    console.log(image)
     $http.post('/api/images/collect', {
         image: image,
         user_id: localStorage.id
