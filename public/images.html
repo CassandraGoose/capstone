@@ -41,9 +41,10 @@
         </form>
 
 
-        <div class="column-group top-space left-space extraleft">
+        <div class="column-group top-space left-space extraleft" infinite-scroll="myPagingFunction()" infinite-scroll-distance="3">
+
             <div class="xlarge-30 large-30 medium-50 small-100 tiny-100 align-center" ng-repeat="uploaded_image in $ctrl.uploaded_images | orderBy:$ctrl.filters" >
-                <div class="bottom-space left-space" infinite-scroll="myPagingFunction()" infinite-scroll-distance="3">
+                <div class="bottom-space left-space">
                     <img class="column ink-image" ng-src="{{uploaded_image.URL}}">
 
                 </div>
@@ -54,7 +55,7 @@
                     <!-- <div>
                     <span am-time-ago="{{image.date}}"></span>
                 </div> -->
-                </div>
             </div>
         </div>
+      </div>
 </main>
