@@ -5,6 +5,7 @@ angular
 function ImagesController($http, $stateParams, $state) {
   const vm = this
   const BaseURL = '/api'
+  vm.toBackendCollection = toBackendCollection
   vm.filters = "-popularity"
 
   vm.$onInit = function() {
@@ -13,6 +14,18 @@ function ImagesController($http, $stateParams, $state) {
       console.log(vm.uploaded_images)
     })
   }
+
+//not sure this works below
+  function toBackendCollection() {
+    $http.post('/api/images/' + vm.uploaded_images.id, {
+        imageID: vm.uploaded_images.id
+      })
+      .then(function(response) {
+        res.send(response)
+      })
+  }
+
+
 
   vm.doSortThing = function(sortType, sortValue) {
     console.log(`${BaseURL}/images/sort?sortType=${sortType}&sortValue=${sortValue}`);
