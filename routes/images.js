@@ -28,6 +28,15 @@ router.get('/user/:id/collection/', authMiddleware.allowAccess, (req, res) => {
     .then(collected_images => res.json(collected_images))
 })
 
+router.post('/images/:id', (req, res, next) => {
+  knex('uploaded_images')
+    .update('popularity', knex.raw('popularity + 1'))
+    .where('uploaded_images.id', req.params.id)
+    .then( () => {knex('uploaded_images').where('uploaded_images.id', req.params.id).first()
+      console.log('check popularity please');
+    })
+})
+
 router.post('/upload', (req, res, next) => {
   var image = {
     URL: req.body.url,
