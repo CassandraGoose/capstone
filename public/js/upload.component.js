@@ -22,6 +22,7 @@ function UploadController($http, $stateParams, $state) {
   }
 
   function uploadImage(img) {
+    console.log(vm.uploaded_images)
     $http.post(BaseURL + '/upload', {
         url: vm.uploaded_images.URL,
         mood: vm.uploaded_images.mood,
@@ -30,7 +31,6 @@ function UploadController($http, $stateParams, $state) {
         popularity: 0
       })
       .then(function(response) {
-        console.log("cyril voice: hello!");
         $state.go('images')
       })
   }
