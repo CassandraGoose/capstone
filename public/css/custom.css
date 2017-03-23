@@ -68,6 +68,14 @@ body {
   margin-top: 8px;
 }
 
+.titlespace {
+  padding-top: .85em;
+}
+
+.rightspace {
+  padding-right: 1em;
+}
+
 .spacer {
   height: 10em;
 }
@@ -83,6 +91,11 @@ body {
   margin-top: 3em !important;
 }
 
+.titlething {
+ max-height: 3em;
+ max-width: 10em;
+
+}
 .sk-circle {
   margin: 100px auto;
   width: 40px;
