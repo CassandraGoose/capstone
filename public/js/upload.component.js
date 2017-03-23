@@ -31,7 +31,7 @@ function UploadController($http, $stateParams, $state) {
       })
       .then(function(response) {
         console.log("cyril voice: hello!");
-        delete vm.uploaded_images;
+        $state.go('images')
       })
   }
 }
