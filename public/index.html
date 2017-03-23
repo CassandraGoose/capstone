@@ -15,7 +15,7 @@
 
 <body>
 
-    <nav class="ink-navigation">
+    <!-- <nav class="ink-navigation">
         <div class="container">
             <div class="menu horizontal black">
                 <nav class="ink-navigation">
@@ -32,7 +32,27 @@
                 </nav>
             </div>
         </div>
+    </nav> -->
+
+    <nav class="ink-navigation">
+        <ul class="menu horizontal black">
+            <li>
+                <a href="#"><img class="ink-image moveright" src="/images/menu-pixel (1).png"></a>
+                <ul class="submenu">
+                    <li><a href="/images">Images</a></li>
+                    <li><a href="/user/collection">Collection</a></li>
+                    <li><a href="/upload">Upload</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </li>
+
+
+            <a href="/images"><img class="ink-image push-right right-space logo" src="/images/inspireimage.png"></a>
+        </ul>
     </nav>
+
+
         <ui-view></ui-view>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
