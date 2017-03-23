@@ -23,12 +23,11 @@
 
     </div>
     <section class="column-group">
-      <h5 class="align-center"> Select a MOOD and COLOR that match your uploaded image </h5>
+      <h5 class="align-center"> Select a MOOD matches your uploaded image. </h5>
 
-    <fieldset class="small-100 medium-50 large-50 xlarge-50">
-        <div class="control-group small-100 medium-50 large-50 xlarge-50">
-            <p class="label">Mood</p>
-            <ul class="control unstyled">
+    <fieldset class="all-100">
+        <div class="control-group all-100 push-center align-center">
+            <ul class="control unstyled inline">
                 <li><input type="radio" id="angry" name="angry" value="angry" ng-model="$ctrl.uploaded_images.mood"><label for="angry">Angry</label></li>
                 <li><input type="radio" id="anxious" name="anxious" value="anxious" ng-model="$ctrl.uploaded_images.mood"><label for="anxious">Anxious</label></li>
                 <li><input type="radio" id="content" name="content" value="content" ng-model="$ctrl.uploaded_images.mood"><label for="content">Content</label></li>
@@ -43,25 +42,7 @@
             </ul>
         </div>
     </fieldset>
-    <!-- <fieldset class="small-100 medium-50 large-50 xlarge-50">
-        <div class="control-group small-100 medium-50 large-50 xlarge-50">
-            <p class="label">Color</p>
-            <ul class="control unstyled">
-                <li><input type="radio" id="red" name="red" value="red" ng-model="$ctrl.uploaded_images.color"><label for="red">Red</label></li>
-                <li><input type="radio" id="orange" name="orange" value="orange" ng-model="$ctrl.uploaded_images.color"><label for="orange">Orange</label></li>
-                <li><input type="radio" id="yellow" name="yellow" value="yellow" ng-model="$ctrl.uploaded_images.color"><label for="yellow">Yellow</label></li>
-                <li><input type="radio" id="green" name="green" value="green" ng-model="$ctrl.uploaded_images.color"><label for="green">Green</label></li>
-                <li><input type="radio" id="blue" name="blue" value="blue" ng-model="$ctrl.uploaded_images.color"><label for="blue">Blue</label></li>
-                <li><input type="radio" id="purple" name="purple" value="purple" ng-model="$ctrl.uploaded_images.color"><label for="purple">Purple</label></li>
-                <li><input type="radio" id="brown" name="brown" value="brown" ng-model="$ctrl.uploaded_images.color"><label for="brown">Brown</label></li>
-                <li><input type="radio" id="cream" name="cream" value="cream" ng-model="$ctrl.uploaded_images.color"><label for="cream">Cream</label></li>
-                <li><input type="radio" id="grey" name="grey" value="grey" ng-model="$ctrl.uploaded_images.color"><label for="grey">Grey</label></li>
-                <li><input type="radio" id="black" name="black" value="black" ng-model="$ctrl.uploaded_images.color"><label for="black">Black</label></li>
-                <li><input type="radio" id="white" name="white" value="white" ng-model="$ctrl.uploaded_images.color"><label for="white">White</label></li>
-            </ul>
-        </div>
-    </fieldset> -->
-    <div class="control append-button align-center" ng-click="isSpinnerOpen = !isSpinnerOpen" role="submit">
+    <div class="control append-button align-center all-100" ng-click="isSpinnerOpen = !isSpinnerOpen" role="submit">
         <button class="ink-button push-center" ng-click="$ctrl.toBackend()" ng-disabled="postForm.$invalid" type="submit">submit</button>
     </div>
     <div class="sk-circle" ng-init="isSpinnerOpen = false" ng-show="isSpinnerOpen">
@@ -78,7 +59,7 @@
       <div class="sk-circle11 sk-child"></div>
       <div class="sk-circle12 sk-child"></div>
     </div>
-  
+
   </section>
 
 
