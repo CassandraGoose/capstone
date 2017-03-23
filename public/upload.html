@@ -14,10 +14,10 @@
 
     </div>
     <div class="control-group all-50 small-100 tiny-100 align-center extrabottom" ng-class="{ 'has-error': uploadForm.$invalid }">
-        <label for="title">Keyword</label>
-        <input id="URL" name="URL" class="control" ng-minlength=4 placeholder="Keyword" ng-model="$ctrl.uploaded_images.keyword" required>
+        <label for="keyword">Keyword</label>
+        <input id="keyword" name="keyword" class="control" ng-minlength=4 placeholder="Keyword" ng-model="$ctrl.uploaded_images.keyword" required>
         <span class="error" ng-show="uploadForm.title.$invalid">
-                <small class="error" ng-show="uploadForm.title.$error.minlength">pls change validate to keyword stuff
+                <small class="error" ng-show="uploadForm.keyword.$error.minlength">pls change validate to keyword stuff
                 </small>
               </span>
 
