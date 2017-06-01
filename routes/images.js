@@ -44,6 +44,18 @@ router.post('/user/collection', (req, res) => {
 })
 
 
+
+router.post('/clowns', (req, res) => {
+  var clownInfo = {
+    name: "bozo",
+    specialty: "facepaint"
+  }
+  knex('clown')
+    .insert(clownInfo)
+    .then(clowns => res.json(clowns))
+})
+
+
 router.post('/images/collect', (req, res, next) => {
   console.log(req.body.image)
   var collectedInfo = {

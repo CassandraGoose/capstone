@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 var cookieParser = require('cookie-parser')
-var cors = require('express-cors')
+var cors = require('cors')
 const app = express()
 require('dotenv').config()
 
@@ -20,11 +20,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')))
 
 app.use(cookieParser(process.env.COOKIE_SECRET))
 
-// app.use(cors({
-//   allowedOrigins: [
-//     'http://127.0.0.1:3000/'
-//   ]
-// }))
+app.use('cors')
 
 app.use('/api', require('./routes/images'))
 app.use('/api/auth', require('./routes/users'))
