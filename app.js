@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')))
 
 app.use(cookieParser(process.env.COOKIE_SECRET))
 
-app.use('cors')
+app.use(cors)
 
 app.use('/api', require('./routes/images'))
 app.use('/api/auth', require('./routes/users'))
