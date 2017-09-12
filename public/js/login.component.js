@@ -9,7 +9,6 @@ function LoginController($http, $stateParams, $state) {
   vm.redirectIfLoggedIn = redirectIfLoggedIn
 
   vm.$onInit = function() {
-    console.log('login heyyyyyyybro');
     redirectIfLoggedIn()
   }
 

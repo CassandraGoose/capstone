@@ -22,7 +22,6 @@ function UploadController($http, $stateParams, $state) {
   }
 
   function uploadImage(img) {
-    console.log(vm.uploaded_images)
     $http.post(BaseURL + '/upload', {
         url: vm.uploaded_images.URL,
         mood: vm.uploaded_images.mood,

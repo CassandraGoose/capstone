@@ -8,7 +8,6 @@ function RegisterController($http, $stateParams, $state) {
   vm.register = register
 
   vm.$onInit = function() {
-    console.log('register heyyyyyyybro');
     redirectIfLoggedIn()
   }
 
@@ -25,7 +24,6 @@ function RegisterController($http, $stateParams, $state) {
         email: vm.person.email
       })
       .then(function(response) {
-        console.log("cyril voice: hello!");
         $state.go('login')
 
         delete vm.person;

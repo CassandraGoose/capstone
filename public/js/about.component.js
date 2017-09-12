@@ -4,9 +4,7 @@ angular
 
 function AboutController($http, $stateParams, $state) {
   const vm = this
-    //base urL?
+  //base urL?
 
-  vm.$onInit = function() {
-    console.log('about page');
-  }
+  vm.$onInit = function() {}
 }

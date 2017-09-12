@@ -77,7 +77,6 @@ router.post('/images/:id', (req, res, next) => {
     .where('uploaded_images.id', req.params.id)
     .then(() => {
       knex('uploaded_images').where('uploaded_images.id', req.params.id).first()
-      console.log('check popularity please');
     })
     .catch(err => next(err))
 })

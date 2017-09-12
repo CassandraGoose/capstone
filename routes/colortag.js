@@ -17,26 +17,22 @@ var request = require('request')
 
 
 router.post('/dothething', (req, res, next) => {
-    console.log('HELLLLOOOOO?????1!!!! WHY WONT YOU JUST FUCKING WORRRRRKKKKK');
-    let imageURL = req.body.imageURL
-    console.log(imageURL);
-    let API_KEY = process.env.MASHAPE_KEY
-    request({
-        url: "https://apicloud-colortag.p.mashape.com/tag-url.json?palette=simple&sort=weight&url=" + imageURL,
-        method: 'GET',
-        headers: {
-            'X-Mashape-Key': API_KEY,
-            'Accept': 'application/json'
-        }
-    }, function(error, response, body){
-        if(error) {
-            console.log(error);
-        } else {
-            console.log(response.statusCode, body)
-            res.send(body)
-        }
-    });
-  })
+  let imageURL = req.body.imageURL
+  console.log(imageURL);
+  let API_KEY = process.env.MASHAPE_KEY
+  request({
+    url: "https://apicloud-colortag.p.mashape.com/tag-url.json?palette=simple&sort=weight&url=" + imageURL,
+    method: 'GET',
+    headers: {
+      'X-Mashape-Key': API_KEY,
+      'Accept': 'application/json'
+    }
+  }, function(error, response, body) {
+    if (error) {} else {
+      res.send(body)
+    }
+  });
+})
 
 
 //the one below this is for uploading images, but i'm not sure i'll get to that. you know?
