@@ -10,6 +10,7 @@
                 <label for="email">Email</label>
                 <input id="email" name="email" class="control" ng-minlength=5 placeholder="Email" ng-model="$ctrl.person.email" required>
                 <span class="error" ng-show="registerForm.email.$dirty && registerForm.email.$invalid">
+                  <br />
               <small class="error" ng-show="registerForm.email.$error.minlength">Please provide a valid email.
               </small>
             </span>
@@ -17,8 +18,9 @@
             </div>
             <div class="control-group all-50 small-100 tiny-100 align-center" ng-class="{ 'has-error': registerForm.$invalid }">
                 <label for="password">Password</label>
-                <input id="password" name="password" class="control" ng-minlength=5 placeholder="Password" ng-model="$ctrl.person.password" required>
+                <input id="password" name="password" type="password" class="control" ng-minlength=5 placeholder="Password" ng-model="$ctrl.person.password" required>
                 <span class="error" ng-show="registerForm.password.$dirty && registerForm.password.$invalid">
+                  <br />
               <small class="error" ng-show="registerForm.password.$error.minlength">Password must be at least 6 characters long.
               </small>
             </span>

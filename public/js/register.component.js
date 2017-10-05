@@ -25,7 +25,6 @@ function RegisterController($http, $stateParams, $state) {
       })
       .then(function(response) {
         $state.go('login')
-
         delete vm.person;
       })
   }
